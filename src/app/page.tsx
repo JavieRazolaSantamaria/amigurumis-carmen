@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { amigurumis, numeroPatron, type ColorOvillo } from "@/data/amigurumis";
 import { sitio } from "@/data/sitio";
-import { ContactAction } from "@/components/ContactAction";
 import { Hilo } from "@/components/Hilo";
 import { IconArrow, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
 
@@ -24,9 +23,12 @@ export default function Home() {
             </h1>
             <p className="hero-lede">{sitio.presentacion}</p>
             <div className="hero-actions">
-              <ContactAction />
-              <Link className="btn btn-ghost" href="#coleccion">
+              <Link className="btn btn-primary" href="#coleccion">
                 Ver la colección
+                <IconArrow />
+              </Link>
+              <Link className="btn btn-ghost" href="#origen">
+                ¿Qué es un amigurumi?
               </Link>
             </div>
           </div>
@@ -100,6 +102,41 @@ export default function Home() {
 
       <Hilo variante={1} />
 
+      <section className="section" id="origen" aria-labelledby="origen-titulo">
+        <div className="wrap">
+          <div className="band band-origen">
+            <h2 id="origen-titulo">De dónde viene el amigurumi</h2>
+            <div className="origen-grid">
+              <p className="etimo" lang="ja" translate="no">
+                <span className="etimo-pieza">
+                  <span className="jp">編み</span>
+                  <span className="lectura" lang="es">ami · tejido</span>
+                </span>
+                <span className="etimo-mas" aria-hidden="true">+</span>
+                <span className="etimo-pieza">
+                  <span className="jp">ぬいぐるみ</span>
+                  <span className="lectura" lang="es">nuigurumi · muñeco de peluche</span>
+                </span>
+              </p>
+              <div className="origen-texto">
+                <p>
+                  La palabra es japonesa y junta dos: <em>ami</em>, tejer, y <em>nuigurumi</em>, muñeco relleno. Es decir, un
+                  peluche tejido a mano.
+                </p>
+                <p>
+                  Nació en Japón, muy ligado a la estética <em>kawaii</em>: cabezas grandes, cuerpos redondos y caras sencillas.
+                  Se teje en espiral, sin cerrar las vueltas, con puntos muy apretados para que no se vea el relleno.
+                </p>
+                <p>
+                  A principios de los 2000 los patrones empezaron a circular por internet y el amigurumi se hizo popular en todo el
+                  mundo. Hoy cada tejedora le da su propio carácter.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section" id="leer-un-patron" aria-labelledby="patron-titulo">
         <div className="wrap">
           <div className="section-head">
@@ -142,45 +179,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="encargos" aria-labelledby="encargos-titulo">
-        <div className="wrap">
-          <div className="band">
-            <div className="section-head">
-              <h2 id="encargos-titulo">Encargos</h2>
-              <p>Si te gusta una pieza de la colección, puedes pedirle a Carmen que te teja una.</p>
-            </div>
-            <ol className="steps">
-              <li className="step">
-                <span className="step-num">1</span>
-                <h3>Escríbele</h3>
-                <p>Dile qué pieza te gusta, o la idea que tienes en mente.</p>
-              </li>
-              <li className="step">
-                <span className="step-num">2</span>
-                <h3>Concretáis los detalles</h3>
-                <p>Habláis de colores, tamaño y plazo antes de empezar.</p>
-              </li>
-              <li className="step">
-                <span className="step-num">3</span>
-                <h3>Lo teje para ti</h3>
-                <p>Vuelta a vuelta, a mano. Te avisa cuando esté listo.</p>
-              </li>
-            </ol>
-            <div className="contact-box">
-              {sitio.contacto ? (
-                <>
-                  <p>El contacto es directo con Carmen: sin formularios ni pagos en la web.</p>
-                  <ContactAction />
-                </>
-              ) : (
-                <p>
-                  <strong>Contacto en preparación.</strong> Pronto aquí estará el canal para hacer encargos directamente a Carmen.
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

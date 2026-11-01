@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { amigurumis, getAmigurumi, numeroPatron } from "@/data/amigurumis";
-import { ContactAction } from "@/components/ContactAction";
 import { ModelViewer } from "@/components/ModelViewer";
 import { PatternExplorer } from "@/components/PatternExplorer";
 import { IconInfo, Ovillo, Sym3D } from "@/components/icons";
@@ -106,7 +105,9 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
               <Dato nombre="Hilo" valor={a.hilo} />
             </dl>
           </div>
-          <ContactAction texto="Pide uno igual" detalle={`Hola, me gustaría encargar el amigurumi ${numeroPatron(a.numero)} (${a.nombre}).`} />
+          <Link className="btn btn-ghost" href="/#coleccion">
+            Volver a la colección
+          </Link>
         </div>
       </div>
 

@@ -109,15 +109,15 @@ La portada presenta primero a Carmen: su foto en un arco amarillo, con un ovillo
 Estrategia de paleta completa: cuatro colores de ovillo con papeles fijos, más tinta berenjena.
 
 ### Primary
-- **Coral** (`coral`): acción principal (pedir), vuelta elegida en el patrón y apellidos del titular (`coral-deep`).
+- **Coral** (`coral`): acción principal (ver la colección), vuelta elegida en el patrón y apellidos del titular (`coral-deep`).
 
 ### Secondary
-- **Turquesa** (`turquesa`): el hilo, el ovillo del retrato, la banda de encargos y el anillo de foco.
-- **Amarillo yema** (`yema`): arco del retrato, números de los pasos y fondo de selección de texto.
+- **Turquesa** (`turquesa`): el hilo, el ovillo del retrato y el anillo de foco.
+- **Amarillo yema** (`yema`): arco del retrato, banda del origen del amigurumi y fondo de selección de texto.
 - **Verde hoja** (`hoja`): vueltas marcadas como tejidas.
 
 ### Neutral
-- `white` de fondo, `ink` para texto y superficies oscuras (pie, caja de contacto), `ink-soft` para texto secundario, `line-soft` para separadores. Cada color tiene su versión `-wash` para fondos suaves y casilleros vacíos.
+- `white` de fondo, `ink` para texto y superficies oscuras (pie), `ink-soft` para texto secundario, `line-soft` para separadores. Cada color tiene su versión `-wash` para fondos suaves y casilleros vacíos.
 
 ### Named Rules
 - **Un ovillo por casillero.** Cada pieza tiene asignado un color de ovillo (`ovillo` en los datos) que tiñe su casillero, su ficha y su patrón.
@@ -134,7 +134,7 @@ display (nombre de Carmen, nombre de pieza) → heading (secciones) → title (c
 
 ## Layout
 
-Contenedor de 1320 px con `gutter`. Cabeceras de sección en dos columnas (título / explicación), una sola en ≤900 px. Estantería de 3 casilleros (2 en tableta, 1 en móvil) apoyada sobre una balda de tinta. Encargos dentro de una banda turquesa de esquinas muy redondeadas.
+Contenedor de 1320 px con `gutter`. Cabeceras de sección en dos columnas (título / explicación), una sola en ≤900 px. Estantería de 3 casilleros (2 en tableta, 1 en móvil) apoyada sobre una balda de tinta. La sección de origen va en una banda amarilla de esquinas muy redondeadas, con la etimología en japonés (編み + ぬいぐるみ) en piezas blancas.
 
 ## Elevation & Depth
 
@@ -173,3 +173,4 @@ Silueta de barras (una por vuelta, ancho proporcional a los puntos) sobre el `-w
 - No poner rótulos encima de los titulares.
 - No usar sombras, degradados ni texto blanco sobre amarillo, coral o verde.
 - No inventar precios, reseñas, medidas ni patrones.
+- Nada de lenguaje de venta ni encargos: es un escaparate.

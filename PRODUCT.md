@@ -12,13 +12,13 @@ Next.js (App Router) + TypeScript, desplegable en Vercel. Elegido por el usuario
 
 ## Users
 
-- **Visitantes que descubren los amigurumis** (familia, amistades, gente que llega por redes sociales). Quieren ver las piezas de cerca y, si les gusta una, pedir que se la hagan.
+- **Visitantes que descubren los amigurumis** (familia, amistades, gente que llega por redes sociales). Quieren conocer a Carmen y ver las piezas de cerca.
 - **Personas que tejen** y quieren ver cómo está hecho un amigurumi (el patrón). Aún no se sabe si los patrones serán públicos.
 - **Carmen Santamaría**, la autora, y su hijo, que mantiene la web y añade fotos y piezas.
 
 ## Product Purpose
 
-Escaparate de los amigurumis tejidos a mano por Carmen Santamaría, con encargos por contacto directo. No hay pagos ni carrito en la web. El éxito es que quien la visite vea el trabajo con detalle, entienda que cada pieza está hecha a mano y sepa cómo pedir una.
+Escaparate de los amigurumis tejidos a mano por Carmen Santamaría González. **No se vende nada**: ni tienda, ni encargos, ni contacto comercial. El éxito es que quien la visite vea el trabajo con detalle, entienda que cada pieza está hecha a mano y aprenda algo sobre los amigurumis.
 
 ## Positioning
 
@@ -28,15 +28,14 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 
 - Las fotos se hacen con un iPhone, en casa, normalmente con la pieza sostenida en la mano.
 - Las piezas se añaden poco a poco; al principio el catálogo tendrá muy pocas.
-- Los encargos se cierran por mensaje directo, fuera de la web.
 
 ## Capabilities and Constraints
 
 - Catálogo de amigurumis con una ficha por pieza: fotos, descripción y datos de la pieza.
 - **Visor 3D interactivo (previsto):** generado a partir de varias fotos de cada amigurumi. Formato y herramienta de generación por decidir; la ficha debe funcionar sin modelo 3D.
 - **Patrón (previsto):** se mostrará en la ficha. Sin decidir si será gratis, parcial o de pago; la sección debe poder ocultarse.
-- Canal de contacto para encargos sin decidir (WhatsApp, email o Instagram).
-- Precios sin definir: no mostrar ninguno.
+- Sin venta: no mostrar precios, encargos, botones de compra ni contacto comercial (decisión del usuario).
+- Sección "De dónde viene el amigurumi": origen japonés del término y de la técnica.
 
 ## Brand Commitments
 
@@ -56,5 +55,5 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 
 1. La pieza manda: las fotos y el detalle del tejido son el contenido principal.
 2. Hecho a mano, por alguien con nombre: la web transmite autoría y oficio, no catálogo industrial.
-3. Pedir uno tiene que ser obvio desde cualquier ficha.
+3. Escaparate, no tienda: nada de lenguaje de venta.
 4. Crecer sin rehacer: añadir una pieza nueva, un modelo 3D o un patrón es añadir datos, no rediseñar.

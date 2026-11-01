@@ -473,60 +473,68 @@ a.cubby:hover .cubby-go svg {
   font-size: 1.0625rem;
 }
 
-/* Encargos */
+/* Banda de color (origen) */
 .band {
-  background: var(--turquesa);
   border-radius: clamp(24px, 4vw, 48px);
   padding: clamp(28px, 5vw, 64px);
 }
-.band .section-head p {
-  color: var(--ink);
+.band-origen {
+  background: var(--yema);
 }
-.steps {
+.band-origen h2 {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.95;
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+.origen-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+  margin-top: clamp(24px, 4vw, 48px);
 }
-.step {
-  padding: 24px;
+.etimo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 20px;
+}
+.etimo-pieza {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 22px;
   border-radius: var(--radius);
   background: var(--white);
 }
-.step-num {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: var(--yema);
-  font-weight: 800;
-  font-size: 1.25rem;
+.etimo-pieza .jp {
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
 }
-.step h3 {
-  margin-top: 16px;
-  font-size: 1.375rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-.step p {
-  margin-top: 6px;
+.etimo-pieza .lectura {
+  font-family: var(--font-type);
+  font-size: 0.9375rem;
   color: var(--ink-soft);
-  max-width: 36ch;
 }
-.contact-box {
-  margin-top: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px 32px;
-  padding: 22px 24px;
-  border-radius: var(--radius);
-  background: var(--ink);
-  color: #fff;
+.etimo-mas {
+  align-self: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
 }
-.contact-box p {
-  max-width: 56ch;
+.origen-texto {
+  display: grid;
+  gap: 14px;
+  max-width: 52ch;
+  font-size: 1.125rem;
+}
+.origen-texto em {
+  font-style: italic;
+  font-weight: 600;
 }
 
 /* Pie */
@@ -875,7 +883,7 @@ a.cubby:hover .cubby-go svg {
   .legend {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .steps {
+  .origen-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
