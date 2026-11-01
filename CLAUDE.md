@@ -1,6 +1,10 @@
 # Proyecto Página Web
 
-Proyecto web en fase inicial: la idea aún no está definida. Responder en español.
+Web escaparate de los amigurumis de Carmen Santamaría (Next.js 16 + TypeScript). Responder en español.
+
+- Producto: `PRODUCT.md`. Sistema visual: `DESIGN.md` (estantería de mercería, alegre).
+- Catálogo: `src/data/amigurumis.ts` (añadir pieza = fotos en `public/amigurumis/<slug>/` + una entrada). Contacto: `src/data/sitio.ts`.
+- Arrancar: `npm run dev` (http://localhost:3000).
 
 ## Skills de diseño (en `.claude/skills/`)
 

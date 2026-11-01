@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T21:00:00Z",
+  "title": "Design System: Amigurumis de Carmen Santamaría",
+  "extensions": {
+    "colorMeta": {
+      "coral": { "role": "primary", "displayName": "Coral", "tonalRamp": ["#ffe3de", "#ff6f5b", "#f2523c"] },
+      "turquesa": { "role": "secondary", "displayName": "Turquesa", "tonalRamp": ["#d5f2ee", "#22b3a6"] },
+      "yema": { "role": "secondary", "displayName": "Amarillo yema", "tonalRamp": ["#fff3cc", "#ffc83d"] },
+      "hoja": { "role": "tertiary", "displayName": "Verde hoja", "tonalRamp": ["#e4f3dc", "#7cc35b"] },
+      "ink": { "role": "neutral", "displayName": "Tinta berenjena", "tonalRamp": ["#5d5266", "#2a1f33"] },
+      "white": { "role": "neutral", "displayName": "Blanco", "tonalRamp": ["#fdfdfb", "#e7e1ea"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Nombre de Carmen y de cada pieza." },
+      "heading": { "displayName": "Sección", "purpose": "Títulos de sección." },
+      "title": { "displayName": "Título de bloque", "purpose": "Casilleros y pasos." },
+      "notation": { "displayName": "Notación", "purpose": "Vueltas, puntos y números de pieza." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Estados (160 ms) y levantar casillero (220 ms)." },
+      { "name": "unroll", "value": "animation-timeline: view(); range entry 10% cover 45%", "purpose": "El hilo se desenrolla con el scroll." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "900px" },
+      { "name": "sm", "value": "640px" },
+      { "name": "xs", "value": "420px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción de encargo.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Pide el tuyo →</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;border:2px solid #2a1f33;background:#ff6f5b;color:#2a1f33;font:700 1rem 'Bricolage Grotesque',system-ui,sans-serif;text-decoration:none}.ds-btn:hover{background:#f2523c}"
+    },
+    {
+      "name": "Cubby",
+      "kind": "card",
+      "refersTo": "cubby",
+      "description": "Casillero de la estantería con la pieza.",
+      "html": "<a class=\"ds-cubby\" href=\"#\"><span class=\"ds-cubby-img\"></span><small>Nº 01</small><strong>Marmota</strong><span>Ver ficha →</span></a>",
+      "css": ".ds-cubby{display:flex;flex-direction:column;gap:6px;width:240px;padding:18px;border-radius:20px;background:#ffc83d;color:#2a1f33;text-decoration:none;font-family:'Bricolage Grotesque',system-ui,sans-serif}.ds-cubby-img{aspect-ratio:1;border-radius:999px;background:#fff3cc}.ds-cubby strong{font-size:1.75rem;font-weight:800}.ds-cubby small{font-family:'Courier Prime',monospace}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La estantería de la mercería",
+    "overview": "Blanco limpio con cuatro colores de ovillo en bloques. Carmen en portada; cada pieza en su casillero de color; la ficha como etiqueta de ovillo.",
+    "keyCharacteristics": ["Cuatro colores de ovillo", "Formas redondeadas", "Bricolage Grotesque", "Hilo que se desenrolla"],
+    "rules": [
+      { "name": "Un ovillo por casillero", "body": "Cada pieza tiene su color de ovillo que tiñe casillero, ficha y patrón.", "section": "colors" },
+      { "name": "Texto en tinta sobre color", "body": "Nunca texto blanco sobre amarillo, coral o verde.", "section": "colors" }
+    ],
+    "dos": ["Alternar colores de ovillo", "Fotos sin filtros", "Etiquetar lo provisional"],
+    "donts": ["Cuadrícula de fondo", "Sombras o degradados", "Datos inventados"]
+  }
+}
