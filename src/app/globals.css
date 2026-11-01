@@ -994,7 +994,7 @@ a.cubby:hover .cubby-go svg {
   max-height: 80vh;
   width: 100%;
   border-radius: var(--radius);
-  background: radial-gradient(circle at 50% 40%, #fff 0%, var(--ov-wash, var(--yema-wash)) 70%);
+  background: var(--ov-wash, var(--yema-wash));
   overflow: hidden;
 }
 #vista-3d .viewer-stage {
@@ -1032,4 +1032,23 @@ a.cubby:hover .cubby-go svg {
   .viewer-hint {
     font-size: 0.8125rem;
   }
+}
+
+/* Fotos con el fondo quitado: la pieza sale del círculo */
+.cubby-media.is-cutout {
+  overflow: visible;
+}
+.cubby-media.is-cutout img {
+  position: relative;
+  object-fit: contain;
+  transform: scale(1.04);
+  filter: drop-shadow(0 10px 14px rgb(42 31 51 / 0.25));
+  transition: transform 220ms var(--ease-out);
+}
+a.cubby:hover .cubby-media.is-cutout img {
+  transform: scale(1.08) translateY(-2%);
+}
+.piece-photo.is-cutout img {
+  background: var(--ov-wash);
+  filter: drop-shadow(0 14px 18px rgb(42 31 51 / 0.2));
 }

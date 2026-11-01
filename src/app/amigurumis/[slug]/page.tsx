@@ -64,7 +64,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
 
       <div className={`piece-head wrap ov-${a.ovillo}`}>
         {foto ? (
-          <figure className="piece-photo">
+          <figure className={`piece-photo${foto.recorte ? " is-cutout" : ""}`}>
             <Image src={foto.src} alt={foto.alt} width={foto.ancho} height={foto.alto} sizes="(max-width: 900px) 100vw, 50vw" priority />
             <figcaption>Foto real de la pieza, tejida por Carmen.</figcaption>
           </figure>

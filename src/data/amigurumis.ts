@@ -8,6 +8,8 @@ export type Foto = {
   alto: number;
   /** Centro de la pieza dentro de la foto (%), para los recortes circulares. */
   foco: { x: number; y: number };
+  /** true si la foto tiene el fondo quitado (PNG/WebP transparente). */
+  recorte?: boolean;
 };
 
 /** Un paso del patrón: una vuelta o un tramo de vueltas iguales. */
@@ -73,11 +75,11 @@ const patronEjemploBola: Patron = {
 
 export const amigurumis: Amigurumi[] = [
   {
-    slug: "marmota",
+    slug: "wombat",
     ovillo: "yema",
     numero: 1,
-    nombre: "Marmota",
-    nombreProvisional: true,
+    nombre: "Wombat",
+    nombreProvisional: false,
     descripcion:
       "Cuerpo redondo en beige, hocico tejido aparte en marrón, orejas redondas y un dientecito en crudo. Ojos de seguridad negros y sonrisa bordada.",
     colores: ["Beige", "Marrón", "Crudo", "Negro"],
@@ -85,8 +87,8 @@ export const amigurumis: Amigurumi[] = [
     hilo: null,
     fotos: [
       {
-        src: "/amigurumis/marmota/frente.jpg",
-        alt: "Amigurumi de marmota beige sostenido en la mano, de frente: hocico marrón, ojos negros, orejas redondas y un diente blanco.",
+        src: "/amigurumis/wombat/frente.jpg",
+        alt: "Amigurumi de wombat beige sostenido en la mano, de frente: hocico marrón, ojos negros, orejas redondas y un diente blanco.",
         ancho: 1500,
         alto: 2000,
         foco: { x: 51, y: 51 },
@@ -102,12 +104,21 @@ export const amigurumis: Amigurumi[] = [
     nombre: "Brujita",
     nombreProvisional: true,
     descripcion:
-      "Muñeca de ganchillo con vestido negro de puntadas blancas, pelo rosa y sombrero negro de bruja. Lleva en la mano una escoba de madera.",
-    colores: ["Negro", "Blanco", "Rosa", "Marrón"],
+      "Pelo rosa en tirabuzones, sombrero negro de pico con banda blanca y vestido negro con estrellas bordadas a mano. Lleva una escoba de ramitas de verdad.",
+    colores: ["Negro", "Rosa", "Crudo", "Beige"],
     tamano: null,
     hilo: null,
-    // Pendiente: foto real de la pieza (public/amigurumis/brujita/).
-    fotos: [],
+    fotos: [
+      {
+        // Foto original sin el fondo (recortada con rembg).
+        src: "/amigurumis/brujita/frente.webp",
+        alt: "Amigurumi de brujita de frente: pelo rosa en tirabuzones, sombrero negro de pico con banda blanca, vestido negro con estrellas blancas bordadas y una escoba en la mano.",
+        ancho: 962,
+        alto: 962,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+      },
+    ],
     // Modelo generado con Tripo a partir de una foto. Exportar como GLB y guardarlo aquí.
     modelo3d: "/amigurumis/brujita/modelo.glb",
     patron: null,

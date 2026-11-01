@@ -47,7 +47,7 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 ## Evidence on Hand
 
 - `public/carmen.jpg` — foto de Carmen delante de una buganvilla.
-- `public/amigurumis/` — fotos reales hechas por el usuario. Primera pieza: un animal marrón con hocico oscuro, orejas redondas y un dientecito blanco (especie y nombre por confirmar).
+- `public/amigurumis/` — fotos reales hechas por el usuario. Piezas: Nº 01 wombat (foto en la mano) y Nº 02 brujita (foto con el fondo quitado con rembg). El 3D con IA (Tripo/TRELLIS) se probó y no convence aún; el visor está listo para cuando haya un .glb.
 - La presentación de Carmen en la portada es provisional (escrita sin datos de ella).
 - No existen testimonios, reseñas, cifras de ventas, precios ni patrones reales: no inventarlos. Cualquier texto o patrón de ejemplo debe marcarse como provisional.
 

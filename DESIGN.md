@@ -138,7 +138,7 @@ Contenedor de 1320 px con `gutter`. Cabeceras de sección en dos columnas (títu
 
 ## Elevation & Depth
 
-Sin sombras. La profundidad la dan los bloques de color y el contraste blanco/tinta. Movimiento en hover: el casillero sube 4 px y gira levemente, como al sacar un ovillo.
+Sin sombras de interfaz. La única sombra es la de contacto (drop-shadow suave) bajo las fotos recortadas, para que la pieza se apoye en su casillero. La profundidad la dan los bloques de color y el contraste blanco/tinta. Movimiento en hover: el casillero sube 4 px y gira levemente, como al sacar un ovillo.
 
 ## Shapes
 

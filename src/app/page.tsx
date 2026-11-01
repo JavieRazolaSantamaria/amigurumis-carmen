@@ -51,7 +51,7 @@ export default function Home() {
             {amigurumis.map((a) => (
               <li key={a.slug} style={{ display: "contents" }}>
                 <Link className={`cubby ov-${a.ovillo}`} href={`/amigurumis/${a.slug}`}>
-                  <span className="cubby-media">
+                  <span className={`cubby-media${a.fotos[0]?.recorte ? " is-cutout" : ""}`}>
                     {a.fotos[0] ? (
                       <Image
                         src={a.fotos[0].src}
