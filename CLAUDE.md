@@ -8,8 +8,12 @@ Web escaparate de los amigurumis de Carmen Santamaría (Next.js 16 + TypeScript)
 
 ## Skills de diseño (en `.claude/skills/`)
 
-- `impeccable`: dirección visual y diseño (shape, critique, polish, typeset, colorize…). Cuando haya idea, ejecutar `/impeccable init` para crear PRODUCT.md y DESIGN.md.
+- `impeccable`: dirección visual y diseño (shape, critique, polish, typeset, colorize…). PRODUCT.md y DESIGN.md ya existen.
 - `web-design-guidelines`: revisión de la UI contra las guías de Vercel.
+
+## Referencias
+
+- `docs/referencias/catalogo-efectos.md`: catálogo de efectos (de la skill de Adrián Sáenz). Consultarlo cuando se pidan animaciones o efectos; seguir las reglas de adaptación de su cabecera (React, reduced-motion, máx. 4-5 efectos, coherente con DESIGN.md).
 
 ## Guías de interfaz
 
