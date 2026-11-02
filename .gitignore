@@ -46,3 +46,6 @@ next-env.d.ts
 .impeccable/mocks/
 .impeccable/review/
 .playwright-cli/
+
+# fotos sin procesar que pasa el usuario (se recortan y van a public/)
+/fotos-originales/

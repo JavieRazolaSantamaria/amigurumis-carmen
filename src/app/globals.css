@@ -1032,3 +1032,30 @@ a.cubby:hover .cubby-media.is-cutout img {
   background: var(--ov-wash);
   filter: drop-shadow(0 14px 18px rgb(42 31 51 / 0.2));
 }
+
+/* Secciones en móvil: una fila que se desliza en horizontal */
+@media (max-width: 640px) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-bottom: 4px;
+  }
+  /* Margen al principio y al final de la fila deslizable */
+  .filters::before,
+  .filters::after {
+    content: "";
+    flex: 0 0 calc(var(--gutter) - 10px);
+  }
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+  .filter {
+    flex: none;
+    scroll-snap-align: start;
+  }
+}
