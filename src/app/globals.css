@@ -1064,13 +1064,15 @@ a.cubby:hover .cubby-media.is-cutout img {
 .gallery-stage {
   display: grid;
 }
-.gallery-stage > img {
+.gallery-stage > img,
+.gallery-stage > video {
   grid-area: 1 / 1;
   opacity: 0;
   visibility: hidden;
   transition: opacity 240ms var(--ease-out), visibility 240ms;
 }
-.gallery-stage > img.is-active {
+.gallery-stage > img.is-active,
+.gallery-stage > video.is-active {
   opacity: 1;
   visibility: visible;
 }
@@ -1110,11 +1112,39 @@ a.cubby:hover .cubby-media.is-cutout img {
   height: 100%;
   object-fit: contain;
 }
+/* Vídeo: cuadrado como las fotos, centrado un poco por debajo (donde está la pieza) */
+.gallery-stage > video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 62%;
+  border-radius: var(--radius);
+  background: var(--ink);
+}
+.gallery-thumb.is-video {
+  position: relative;
+}
+.gallery-thumb.is-video img {
+  object-fit: cover;
+}
+.gallery-thumb.is-video svg {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  border-radius: 999px;
+  background: var(--white);
+  fill: var(--ink);
+}
 .gallery-view[aria-pressed="true"] .gallery-thumb {
   border-color: var(--ink);
 }
 @media (prefers-reduced-motion: reduce) {
-  .gallery-stage > img {
+  .gallery-stage > img,
+  .gallery-stage > video {
     transition: none;
   }
 }

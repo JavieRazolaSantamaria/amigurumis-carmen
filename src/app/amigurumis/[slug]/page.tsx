@@ -69,7 +69,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
 
       <div className={`piece-head wrap ov-${a.ovillo}`}>
         {foto ? (
-          <Galeria fotos={a.fotos} />
+          <Galeria fotos={a.fotos} video={a.video} />
         ) : modelo ? (
           <figure className="piece-photo">
             <ModelViewer src={modelo} alt={altModelo} />
