@@ -2,14 +2,13 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { amigurumis, getAmigurumi, numeroPatron } from "@/data/amigurumis";
-import { ContactAction } from "@/components/ContactAction";
+import { amigurumis, getAmigurumi, nombreCategoria, numeroPatron } from "@/data/amigurumis";
+import { Galeria } from "@/components/Galeria";
 import { ModelViewer } from "@/components/ModelViewer";
 import { PatternExplorer } from "@/components/PatternExplorer";
-import { IconInfo, Ovillo, Sym3D } from "@/components/icons";
+import { Ovillo } from "@/components/icons";
 
 /** El visor solo aparece si el .glb está de verdad en public/. */
 function existeEnPublic(ruta: string | null) {
@@ -27,11 +26,13 @@ export async function generateMetadata({ params }: PageProps<"/amigurumis/[slug]
   return { title: `${a.nombre} (${numeroPatron(a.numero)})`, description: a.descripcion };
 }
 
+/** Una fila de la etiqueta; si el dato aún no existe, no se muestra. */
 function Dato({ nombre, valor }: { nombre: string; valor: string | null }) {
+  if (!valor) return null;
   return (
     <div>
       <dt>{nombre}</dt>
-      <dd className={valor ? "" : "is-pending"}>{valor ?? "Por completar"}</dd>
+      <dd>{valor}</dd>
     </div>
   );
 }
@@ -59,16 +60,16 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
           <li>
             <Link href="/#coleccion">Colección</Link>
           </li>
+          <li>
+            <Link href={`/?categoria=${a.categoria}#coleccion`}>{nombreCategoria(a.categoria)}</Link>
+          </li>
           <li aria-current="page">{numeroPatron(a.numero)}</li>
         </ol>
       </nav>
 
       <div className={`piece-head wrap ov-${a.ovillo}`}>
         {foto ? (
-          <figure className="piece-photo">
-            <Image src={foto.src} alt={foto.alt} width={foto.ancho} height={foto.alto} sizes="(max-width: 900px) 100vw, 50vw" priority />
-            <figcaption>Foto real de la pieza, tejida por Carmen.</figcaption>
-          </figure>
+          <Galeria fotos={a.fotos} />
         ) : modelo ? (
           <figure className="piece-photo">
             <ModelViewer src={modelo} alt={altModelo} />
@@ -100,68 +101,47 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
               <span className="type tnum">{numeroPatron(a.numero)}</span>
             </p>
             <dl>
+              <Dato nombre="Sección" valor={nombreCategoria(a.categoria)} />
               <Dato nombre="Colores" valor={a.colores.join(", ")} />
               <Dato nombre="Técnica" valor="Ganchillo en espiral, punto bajo" />
               <Dato nombre="Tamaño" valor={a.tamano} />
               <Dato nombre="Hilo" valor={a.hilo} />
             </dl>
           </div>
-          <ContactAction texto="Pide uno igual" detalle={`Hola, me gustaría encargar el amigurumi ${numeroPatron(a.numero)} (${a.nombre}).`} />
+          <Link className="btn btn-ghost" href="/#coleccion">
+            Volver a la colección
+          </Link>
         </div>
       </div>
 
-      {(foto || !modelo) && (
-      <section className="section" id="vista-3d" aria-labelledby="vista-3d-titulo">
-        <div className="wrap">
-          <div className="section-head">
-            <h2 id="vista-3d-titulo">Vista 3D</h2>
-            <p>Gira la pieza y mírala desde todos los lados.</p>
-          </div>
-          {modelo ? (
+      {/* Cada sección aparece solo cuando la pieza tiene ese contenido. */}
+      {foto && modelo && (
+        <section className="section" id="vista-3d" aria-labelledby="vista-3d-titulo">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 id="vista-3d-titulo">Vista 3D</h2>
+              <p>Gira la pieza y mírala desde todos los lados.</p>
+            </div>
             <div className={`ov-${a.ovillo}`}>
               <ModelViewer src={modelo} alt={altModelo} />
             </div>
-          ) : (
-            <div className="empty-3d">
-              <Sym3D />
-              <div>
-                <h3>El modelo 3D está en preparación</h3>
-                <p>
-                  Se creará a partir de varias fotos de la pieza tomadas alrededor. Cuando esté listo, aquí podrás girarla, acercarte y
-                  ver cada detalle del tejido.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
       )}
 
-      <section className="section" id="patron" aria-labelledby="patron-titulo">
-        <div className="wrap">
-          <div className="section-head">
-            <h2 id="patron-titulo">Patrón</h2>
-            <p>Toca una vuelta para verla en la forma de la pieza y marca las que ya hayas tejido.</p>
+      {a.patron && (
+        <section className="section" id="patron" aria-labelledby="patron-titulo">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 id="patron-titulo">Patrón</h2>
+              <p>Toca una vuelta para verla en la forma de la pieza y marca las que ya hayas tejido.</p>
+            </div>
+            <div className={`ov-${a.ovillo}`}>
+              <PatternExplorer slug={a.slug} patron={a.patron} />
+            </div>
           </div>
-          {a.patron ? (
-            <>
-              {a.patron.esEjemplo && (
-                <p className="sample-note">
-                  <IconInfo />
-                  <span>
-                    <strong>Patrón de ejemplo.</strong> Muestra cómo se verá esta sección; todavía no es el patrón real de esta pieza.
-                  </span>
-                </p>
-              )}
-              <div className={`ov-${a.ovillo}`}>
-                <PatternExplorer slug={a.slug} patron={a.patron} />
-              </div>
-            </>
-          ) : (
-            <p className="no-pattern">El patrón de esta pieza aún no está publicado.</p>
-          )}
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }

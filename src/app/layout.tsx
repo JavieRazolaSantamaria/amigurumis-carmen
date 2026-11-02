@@ -47,11 +47,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 <li>
                   <Link href="/#coleccion">Colección</Link>
                 </li>
+                <li>
+                  <Link href="/#origen">Origen</Link>
+                </li>
                 <li className="opt">
                   <Link href="/#leer-un-patron">Leer un patrón</Link>
-                </li>
-                <li>
-                  <Link href="/#encargos">Encargos</Link>
                 </li>
               </ul>
             </nav>
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <p>
               Amigurumis tejidos a mano por <span translate="no">{sitio.autoraCompleta}</span>.
             </p>
-            <Link href="/#encargos">Pide el tuyo</Link>
+            <Link href="/#coleccion">Ver la colección</Link>
           </div>
         </footer>
       </body>
