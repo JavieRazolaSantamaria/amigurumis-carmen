@@ -104,7 +104,7 @@ export const amigurumis: Amigurumi[] = [
     ovillo: "coral",
     numero: 2,
     nombre: "Brujita",
-    nombreProvisional: true,
+    nombreProvisional: false,
     descripcion:
       "Pelo rosa en tirabuzones, sombrero negro de pico con banda blanca y vestido negro con estrellas bordadas a mano. Lleva una escoba de ramitas de verdad.",
     colores: ["Negro", "Rosa", "Crudo", "Beige"],

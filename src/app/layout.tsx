@@ -45,13 +45,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <nav className="site-nav" aria-label="Principal">
               <ul>
                 <li>
-                  <Link href="/#coleccion">Colección</Link>
-                </li>
-                <li>
                   <Link href="/#origen">Origen</Link>
                 </li>
                 <li className="opt">
                   <Link href="/#leer-un-patron">Leer un patrón</Link>
+                </li>
+                <li>
+                  <Link href="/#coleccion">Colección</Link>
                 </li>
               </ul>
             </nav>

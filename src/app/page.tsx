@@ -36,18 +36,6 @@ export default function Home() {
 
       <Hilo />
 
-      <section className="section" id="coleccion" aria-labelledby="coleccion-titulo">
-        <div className="wrap">
-          <div className="section-head">
-            <h2 id="coleccion-titulo">La colección</h2>
-            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones. Los vacíos son las que aún están en el ganchillo.</p>
-          </div>
-          <Coleccion />
-        </div>
-      </section>
-
-      <Hilo variante={1} />
-
       <section className="section" id="origen" aria-labelledby="origen-titulo">
         <div className="wrap">
           <div className="band band-origen">
@@ -122,6 +110,18 @@ export default function Home() {
           <p className="legend-example">
             <strong>V3:</strong> (1 pb, 1 aum) × 6 <strong>(18)</strong>. Un punto bajo y un aumento, seis veces: la vuelta termina con 18 puntos.
           </p>
+        </div>
+      </section>
+
+      <Hilo variante={1} />
+
+      <section className="section" id="coleccion" aria-labelledby="coleccion-titulo">
+        <div className="wrap">
+          <div className="section-head">
+            <h2 id="coleccion-titulo">La colección</h2>
+            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones. Los vacíos son las que aún están en el ganchillo.</p>
+          </div>
+          <Coleccion />
         </div>
       </section>
 
