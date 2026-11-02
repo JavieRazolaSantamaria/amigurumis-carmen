@@ -1,6 +1,6 @@
 ---
 name: Amigurumis de Carmen Santamaría
-description: Estantería de mercería alegre, con cuatro colores de ovillo sobre blanco limpio.
+description: Estantería de mercería alegre, con cuatro colores de ovillo sobre fondo crema con símbolos de ganchillo.
 colors:
   white: "#fdfdfb"
   ink: "#2a1f33"
@@ -100,7 +100,7 @@ components:
 
 ## Overview
 
-La web es la estantería de una mercería: blanco limpio y luminoso, y los colores llegan en bloques, como ovillos ordenados por casilleros. Cada amigurumi ocupa su casillero de color y su ficha funciona como la etiqueta de un ovillo. Un hilo de lana turquesa baja entre secciones y se desenrolla al hacer scroll.
+La web es la estantería de una mercería: fondo crema cálido (`paper`) con símbolos de ganchillo esparcidos muy suaves (X, V, anillos y puntos en los colores de ovillo), y los colores llegan en bloques, como ovillos ordenados por casilleros. Cada amigurumi ocupa su casillero de color y su ficha funciona como la etiqueta de un ovillo. Un hilo de lana turquesa baja entre secciones y se desenrolla al hacer scroll.
 
 La portada presenta primero a Carmen: su foto en un arco amarillo, con un ovillo a los pies, y su nombre completo en grande. El tono es alegre y cercano, sin cuadrícula de fondo ni estética técnica.
 
@@ -117,7 +117,7 @@ Estrategia de paleta completa: cuatro colores de ovillo con papeles fijos, más 
 - **Verde hoja** (`hoja`): vueltas marcadas como tejidas.
 
 ### Neutral
-- `white` de fondo, `ink` para texto y superficies oscuras (pie), `ink-soft` para texto secundario, `line-soft` para separadores. Cada color tiene su versión `-wash` para fondos suaves y casilleros vacíos.
+- `paper` (#fff7ea con los símbolos de ganchillo) de fondo de página, `white` para superficies (botones secundarios, buscador, etiquetas), `ink` para texto y superficies oscuras (pie), `ink-soft` para texto secundario, `line-soft` para separadores. Cada color tiene su versión `-wash` para fondos suaves y casilleros vacíos.
 
 ### Named Rules
 - **Un ovillo por casillero.** Cada pieza tiene asignado un color de ovillo (`ovillo` en los datos) que tiñe su casillero, su ficha y su patrón.

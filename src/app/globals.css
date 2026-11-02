@@ -3,6 +3,9 @@
 /* Mundo: estantería de mercería. Blanco limpio y cuatro colores de ovillo. */
 :root {
   --white: #fdfdfb;
+  /* Fondo de la página: crema cálido con símbolos de ganchillo esparcidos. */
+  --paper: #fff7ea;
+  --paper-puntos: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'><g fill='none' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' opacity='.32'><path transform='translate(30 40) rotate(10)' d='M-6 -6L6 6M6 -6L-6 6' stroke='%23ff6f5b'/><path transform='translate(130 24) rotate(-12)' d='M-6 -6L0 6L6 -6' stroke='%2322b3a6'/><circle cx='220' cy='60' r='6' stroke='%23f2a900'/><circle cx='80' cy='110' r='2.5' fill='%237cc35b' stroke='none'/><path transform='translate(190 140) rotate(20)' d='M-6 -6L0 6L6 -6' stroke='%23ff6f5b'/><path transform='translate(260 190) rotate(-8)' d='M-6 -6L6 6M6 -6L-6 6' stroke='%2322b3a6'/><circle cx='40' cy='200' r='6' stroke='%237cc35b'/><circle cx='150' cy='230' r='2.5' fill='%23ff6f5b' stroke='none'/><path transform='translate(110 180) rotate(25)' d='M-6 -6L6 6M6 -6L-6 6' stroke='%23f2a900'/><path transform='translate(250 262) rotate(-20)' d='M-6 -6L0 6L6 -6' stroke='%237cc35b'/><circle cx='270' cy='110' r='2.5' fill='%2322b3a6' stroke='none'/><circle cx='20' cy='270' r='2.5' fill='%23f2a900' stroke='none'/><circle cx='165' cy='80' r='6' stroke='%23ff6f5b'/></g></svg>");
   --ink: #2a1f33;
   --ink-soft: #5d5266;
   --line-soft: #e7e1ea;
@@ -36,11 +39,11 @@
 html {
   scroll-padding-top: 88px;
   -webkit-tap-highlight-color: rgb(255 111 91 / 0.2);
-  scrollbar-color: var(--coral) var(--white);
+  scrollbar-color: var(--coral) var(--paper);
 }
 
 body {
-  background: var(--white);
+  background: var(--paper) var(--paper-puntos) 0 0 / 280px 280px;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -117,7 +120,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgb(253 253 251 / 0.92);
+  background: rgb(255 247 234 / 0.92);
   backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid var(--line-soft);
 }
