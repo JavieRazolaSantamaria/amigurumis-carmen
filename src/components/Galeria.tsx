@@ -3,14 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Foto, Video } from "@/data/amigurumis";
+import { PantallaCompleta } from "./PantallaCompleta";
 
 /**
  * Foto principal de la ficha. Si la pieza tiene varias fotos (o un vídeo),
  * debajo aparecen las vistas (frente, lado, vídeo…) para cambiar entre ellas;
- * la vista elegida queda en la URL (?foto=2).
+ * la vista elegida queda en la URL (?foto=2). Al tocar la foto se abre a pantalla completa.
  */
 export function Galeria({ fotos, video }: { fotos: Foto[]; video?: Video }) {
   const [actual, setActual] = useState(0);
+  const [pantalla, setPantalla] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const total = fotos.length + (video ? 1 : 0);
   const enVideo = video !== undefined && actual === fotos.length;
@@ -85,6 +87,16 @@ export function Galeria({ fotos, video }: { fotos: Foto[]; video?: Video }) {
             preload="none"
           />
         )}
+        {!enVideo && (
+          <button type="button" className="gallery-zoom" onClick={() => setPantalla(true)} aria-label={`Ver a pantalla completa: ${foto.alt}`}>
+            <span className="gallery-zoom-chip" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 4h6v6M10 20H4v-6M20 4l-6.5 6.5M4 20l6.5-6.5" />
+              </svg>
+              Ampliar
+            </span>
+          </button>
+        )}
       </div>
       {varias && (
         <div className="gallery-views" role="group" aria-label="Vistas de la pieza" onKeyDown={teclas}>
@@ -128,6 +140,13 @@ export function Galeria({ fotos, video }: { fotos: Foto[]; video?: Video }) {
         {varias ? `${vista} · ` : ""}
         {enVideo ? "Vídeo real de la pieza, tejida por Carmen." : "Foto real de la pieza, tejida por Carmen."}
       </figcaption>
+      <PantallaCompleta
+        fotos={fotos}
+        indice={Math.min(actual, fotos.length - 1)}
+        abierta={pantalla}
+        onCambiar={elegir}
+        onCerrar={() => setPantalla(false)}
+      />
     </figure>
   );
 }
