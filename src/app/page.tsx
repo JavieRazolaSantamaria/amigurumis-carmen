@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { sitio } from "@/data/sitio";
+import { destacadas, novedades } from "@/data/amigurumis";
+import { Casillero } from "@/components/Casillero";
 import { Coleccion } from "@/components/Coleccion";
 import { Hilo } from "@/components/Hilo";
 import { IconArrow, IconInstagram, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
@@ -66,6 +68,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {destacadas.length > 0 && (
+        <section className="section" id="destacadas" aria-labelledby="destacadas-titulo">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 id="destacadas-titulo">Destacadas</h2>
+              <p>Una pequeña selección para empezar a mirar.</p>
+            </div>
+            <ul className="shelf">
+              {destacadas.map((a) => (
+                <Casillero key={a.slug} a={a} />
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <Hilo />
 
@@ -147,6 +165,22 @@ export default function Home() {
       </section>
 
       <Hilo variante={1} />
+
+      {novedades.length > 0 && (
+        <section className="section" id="novedades" aria-labelledby="novedades-titulo">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 id="novedades-titulo">Novedades</h2>
+              <p>Las últimas piezas que han llegado a la estantería.</p>
+            </div>
+            <ul className="shelf">
+              {novedades.map((a) => (
+                <Casillero key={a.slug} a={a} />
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="section" id="coleccion" aria-labelledby="coleccion-titulo">
         <div className="wrap">

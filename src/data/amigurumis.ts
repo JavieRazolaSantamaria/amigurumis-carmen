@@ -73,6 +73,8 @@ export type Amigurumi = {
   patron: Patron | null;
   /** Vídeo corto de la pieza (MP4 sin sonido); sale como una vista más de la galería. */
   video?: Video;
+  /** Sale en "Destacadas" de la portada. */
+  destacada?: boolean;
 };
 
 export type Video = {
@@ -111,6 +113,7 @@ export const amigurumis: Amigurumi[] = [
   },
   {
     slug: "brujita",
+    destacada: true,
     categoria: "halloween",
     ovillo: "coral",
     numero: 2,
@@ -626,6 +629,7 @@ export const amigurumis: Amigurumi[] = [
   },
   {
     slug: "grogu",
+    destacada: true,
     categoria: "personajes",
     ovillo: "coral",
     numero: 19,
@@ -711,6 +715,7 @@ export const amigurumis: Amigurumi[] = [
   // lote3-inicio
   {
     slug: "margarita",
+    destacada: true,
     categoria: "plantas",
     ovillo: "coral",
     numero: 22,
@@ -1517,6 +1522,14 @@ export const amigurumis: Amigurumi[] = [
 export function getAmigurumi(slug: string) {
   return amigurumis.find((a) => a.slug === slug);
 }
+
+export const destacadas = amigurumis.filter((a) => a.destacada);
+
+/** Las tres últimas piezas añadidas (sin repetir las destacadas), la más reciente primero. */
+export const novedades = amigurumis
+  .filter((a) => !a.destacada)
+  .slice(-3)
+  .reverse();
 
 /** Piezas anterior y siguiente en el orden de la colección (da la vuelta en los extremos). */
 export function vecinos(slug: string) {
