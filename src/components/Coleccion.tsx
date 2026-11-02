@@ -1,29 +1,50 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { amigurumis, categorias, nombreCategoria, numeroPatron, type Categoria } from "@/data/amigurumis";
-import { IconArrow, Ovillo } from "./icons";
+import { amigurumis, categorias, nombreCategoria, type Amigurumi, type Categoria } from "@/data/amigurumis";
+import { Casillero } from "./Casillero";
 
 // Solo se ofrecen las secciones que tienen alguna pieza.
 const secciones = categorias.filter((c) => amigurumis.some((a) => a.categoria === c.id));
 
-function leerCategoria(): Categoria | null {
-  const v = new URLSearchParams(window.location.search).get("categoria");
-  return secciones.some((c) => c.id === v) ? (v as Categoria) : null;
+/** Minúsculas y sin tildes, para que "muneca" encuentre "Muñeca". */
+function normalizar(texto: string) {
+  return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 }
 
-/** Estantería de la colección con filtro por sección (?categoria=navidad). */
+const textoDe = new Map(
+  amigurumis.map((a) => [a.slug, normalizar([a.nombre, a.descripcion, a.colores.join(" "), nombreCategoria(a.categoria)].join(" "))]),
+);
+
+/** Cada palabra buscada tiene que aparecer en el nombre, la descripción, los colores o la sección. */
+function coincide(a: Amigurumi, palabras: string[]) {
+  const texto = textoDe.get(a.slug) ?? "";
+  return palabras.every((p) => texto.includes(p));
+}
+
+function leerUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const v = params.get("categoria");
+  return {
+    categoria: secciones.some((c) => c.id === v) ? (v as Categoria) : null,
+    busqueda: params.get("q") ?? "",
+  };
+}
+
+/** Estantería de la colección con buscador (?q=) y filtro por sección (?categoria=navidad). */
 export function Coleccion() {
   const [activa, setActiva] = useState<Categoria | null>(null);
+  const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- la sección viene de la URL, que solo existe en el navegador
-    setActiva(leerCategoria());
-    const alVolver = () => setActiva(leerCategoria());
-    window.addEventListener("popstate", alVolver);
-    return () => window.removeEventListener("popstate", alVolver);
+    const aplicar = () => {
+      const u = leerUrl();
+      setActiva(u.categoria);
+      setBusqueda(u.busqueda);
+    };
+    aplicar();
+    window.addEventListener("popstate", aplicar);
+    return () => window.removeEventListener("popstate", aplicar);
   }, []);
 
   function elegir(id: Categoria | null) {
@@ -34,67 +55,88 @@ export function Coleccion() {
     window.history.pushState(null, "", url);
   }
 
-  const piezas = activa ? amigurumis.filter((a) => a.categoria === activa) : amigurumis;
+  function buscar(texto: string) {
+    setBusqueda(texto);
+    const url = new URL(window.location.href);
+    if (texto.trim()) url.searchParams.set("q", texto);
+    else url.searchParams.delete("q");
+    // Al escribir no se llena el historial: cada letra reemplaza la anterior.
+    window.history.replaceState(null, "", url);
+  }
+
+  const palabras = normalizar(busqueda).split(/\s+/).filter(Boolean);
+  const encontradas = palabras.length ? amigurumis.filter((a) => coincide(a, palabras)) : amigurumis;
+  const piezas = activa ? encontradas.filter((a) => a.categoria === activa) : encontradas;
+  const termino = busqueda.trim();
+
+  let resumen = activa ? `${nombreCategoria(activa)}: ${piezas.length} piezas` : `Toda la colección: ${piezas.length} piezas`;
+  if (termino) resumen = `${piezas.length} piezas con «${termino}»${activa ? ` en ${nombreCategoria(activa)}` : ""}`;
 
   return (
     <>
+      <form className="search" role="search" onSubmit={(e) => e.preventDefault()}>
+        <label htmlFor="buscar" className="sr-only">
+          Buscar en la colección
+        </label>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="m15.5 15.5 5 5" />
+        </svg>
+        <input
+          id="buscar"
+          name="q"
+          type="search"
+          inputMode="search"
+          autoComplete="off"
+          spellCheck={false}
+          enterKeyHint="search"
+          placeholder="Busca por nombre o color: unicornio, rosa…"
+          value={busqueda}
+          onChange={(e) => buscar(e.target.value)}
+        />
+      </form>
+
       {secciones.length > 1 && (
         <div className="filters" role="group" aria-label="Secciones de la colección">
           <button type="button" className="filter" aria-pressed={activa === null} onClick={() => elegir(null)}>
-            Todas <span className="tnum">{amigurumis.length}</span>
+            Todas <span className="tnum">{encontradas.length}</span>
           </button>
           {secciones.map((c) => (
             <button key={c.id} type="button" className="filter" aria-pressed={activa === c.id} onClick={() => elegir(c.id)}>
-              {c.nombre} <span className="tnum">{amigurumis.filter((a) => a.categoria === c.id).length}</span>
+              {c.nombre} <span className="tnum">{encontradas.filter((a) => a.categoria === c.id).length}</span>
             </button>
           ))}
         </div>
       )}
 
       <p className="sr-only" aria-live="polite">
-        {activa ? `${nombreCategoria(activa)}: ${piezas.length} piezas` : `Toda la colección: ${piezas.length} piezas`}
+        {resumen}
       </p>
 
-      <ul className="shelf">
-        {piezas.map((a) => {
-          const foto = a.fotos[0];
-          return (
-            <li key={a.slug} style={{ display: "contents" }}>
-              <Link className={`cubby ov-${a.ovillo}`} href={`/amigurumis/${a.slug}`}>
-                <span className={`cubby-media${foto?.recorte ? " is-cutout" : ""}`}>
-                  {foto ? (
-                    <Image
-                      src={foto.src}
-                      alt=""
-                      width={480}
-                      height={480}
-                      sizes="(max-width: 640px) 90vw, 30vw"
-                      style={{ objectPosition: `${foto.foco.x}% ${foto.foco.y}%` }}
-                    />
-                  ) : (
-                    <span className="cubby-nophoto">
-                      <Ovillo />
-                    </span>
-                  )}
-                </span>
-                <span className="cubby-body">
-                  <span className="cubby-num tnum">
-                    {numeroPatron(a.numero)} · {nombreCategoria(a.categoria)}
-                  </span>
-                  <h3>{a.nombre}</h3>
-                  <span className="cubby-meta">
-                    {a.colores.join(" · ")} {a.nombreProvisional && <span className="tag">nombre provisional</span>}
-                  </span>
-                  <span className="cubby-go">
-                    Ver ficha
-                    <IconArrow />
-                  </span>
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      {piezas.length > 0 ? (
+        <ul className="shelf">
+          {piezas.map((a) => (
+            <Casillero key={a.slug} a={a} />
+          ))}
+        </ul>
+      ) : (
+        <div className="shelf-empty">
+          <p>
+            Ninguna pieza coincide con <strong>«{termino}»</strong>
+            {activa && <> en {nombreCategoria(activa)}</>}.
+          </p>
+          <div className="shelf-empty-actions">
+            {activa && encontradas.length > 0 && (
+              <button type="button" className="btn btn-ghost" onClick={() => elegir(null)}>
+                Buscar en todas las secciones
+              </button>
+            )}
+            <button type="button" className="btn btn-primary" onClick={() => buscar("")}>
+              Borrar la búsqueda
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
