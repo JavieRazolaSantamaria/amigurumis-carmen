@@ -3,10 +3,14 @@ import Image from "next/image";
 import { sitio } from "@/data/sitio";
 import { Coleccion } from "@/components/Coleccion";
 import { Hilo } from "@/components/Hilo";
-import { IconArrow, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
+import { IconArrow, IconInstagram, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
 
 export default function Home() {
   const [nombre, ...apellidos] = sitio.autoraCompleta.split(" ");
+  // La última palabra va pegada a los emojis para que no se queden solos en una línea.
+  const corte = sitio.carta.firma.lastIndexOf(" ");
+  const firmaInicio = sitio.carta.firma.slice(0, corte);
+  const firmaFin = sitio.carta.firma.slice(corte + 1);
 
   return (
     <>
@@ -31,6 +35,35 @@ export default function Home() {
             <Image src={sitio.foto.src} alt={sitio.foto.alt} width={sitio.foto.ancho} height={sitio.foto.alto} sizes="(max-width: 900px) 82vw, 460px" priority />
             <Ovillo className="ball" />
           </figure>
+        </div>
+      </section>
+
+      <section className="section" id="carmen" aria-labelledby="carta-titulo">
+        <div className="wrap">
+          <div className="band band-carta">
+            <h2 id="carta-titulo">{sitio.carta.titulo}</h2>
+            <div className="carta-texto">
+              {sitio.carta.parrafos.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+              <p className="carta-firma">
+                {firmaInicio}{" "}
+                <span className="nowrap">
+                  {firmaFin} <span aria-hidden="true">❤️🧶</span>
+                </span>
+                <span className="carta-autora" translate="no">
+                  {sitio.autora}
+                </span>
+              </p>
+            </div>
+            <a className="btn btn-ghost carta-ig" href={sitio.instagram.url} target="_blank" rel="noopener noreferrer">
+              <IconInstagram />
+              Síguela en Instagram
+              <span className="carta-ig-user" translate="no">
+                @{sitio.instagram.usuario}
+              </span>
+            </a>
+          </div>
         </div>
       </section>
 

@@ -51,7 +51,7 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 
 - `public/carmen.jpg` — foto de Carmen delante de una buganvilla.
 - `public/amigurumis/` — fotos reales hechas por el usuario. 43 piezas (Nº 01–43), casi todas con el fondo quitado con rembg; el sonajero de osito y la sirena van con su foto original. La calabaza con sombrero de bruja (Nº 41) tiene además un vídeo corto sin sonido como vista de la galería. Las fotos sin procesar se guardan en `fotos-originales/` (fuera de git). Nombres y descripciones de las piezas 05–43 deducidos de las fotos: pendientes de confirmar con Carmen. El 3D con IA (Tripo/TRELLIS) se probó y no convence aún; el visor está listo para cuando haya un .glb.
-- La presentación de Carmen en la portada es provisional (escrita sin datos de ella).
+- La presentación de la portada es el texto que escribió Carmen (solo se corrigieron tildes). Su Instagram: @carmen.crochet_ (enlazado en la portada y el pie).
 - No existen testimonios, reseñas, cifras de ventas, precios ni patrones reales: no inventarlos. No mostrar contenido de ejemplo.
 
 ## Product Principles

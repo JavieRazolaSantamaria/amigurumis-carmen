@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Courier_Prime } from "next/font/google";
 import Link from "next/link";
 import { sitio } from "@/data/sitio";
-import { Ovillo } from "@/components/icons";
+import { IconInstagram, Ovillo } from "@/components/icons";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -44,6 +44,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </Link>
             <nav className="site-nav" aria-label="Principal">
               <ul>
+                <li className="opt">
+                  <Link href="/#carmen">Carmen</Link>
+                </li>
                 <li>
                   <Link href="/#origen">Origen</Link>
                 </li>
@@ -63,7 +66,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <p>
               Amigurumis tejidos a mano por <span translate="no">{sitio.autoraCompleta}</span>.
             </p>
-            <Link href="/#coleccion">Ver la colección</Link>
+            <div className="foot-links">
+              <a href={sitio.instagram.url} target="_blank" rel="noopener noreferrer">
+                <IconInstagram />
+                <span translate="no">@{sitio.instagram.usuario}</span>
+              </a>
+              <Link href="/#coleccion">Ver la colección</Link>
+            </div>
           </div>
         </footer>
       </body>

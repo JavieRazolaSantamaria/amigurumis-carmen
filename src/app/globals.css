@@ -572,6 +572,81 @@ a.cubby:hover .cubby-go svg {
   font-weight: 600;
 }
 
+/* Carta de Carmen */
+.band-carta {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+  background: var(--coral-wash);
+}
+.band-carta h2 {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.95;
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.carta-texto {
+  display: grid;
+  gap: 14px;
+  max-width: 60ch;
+  font-size: 1.125rem;
+  text-wrap: pretty;
+}
+.carta-firma {
+  margin-top: 8px;
+  font-style: italic;
+  font-weight: 600;
+}
+/* Mantiene juntas la última palabra de la firma y los emojis. */
+.nowrap {
+  white-space: nowrap;
+}
+.carta-autora {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-type);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.carta-autora::before {
+  content: "— ";
+}
+.carta-ig {
+  grid-column: 2;
+  justify-self: start;
+  flex-wrap: wrap;
+}
+.carta-ig-user {
+  font-family: var(--font-type);
+  font-weight: 400;
+}
+.carta-ig:hover .carta-ig-user {
+  color: inherit;
+}
+@media (max-width: 900px) {
+  .band-carta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .carta-ig {
+    grid-column: 1;
+  }
+}
+
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+}
+.site-foot a svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
 /* Pie */
 .site-foot {
   margin-top: clamp(48px, 7vw, 96px);
