@@ -654,8 +654,15 @@ a.cubby:hover .cubby-go svg {
 }
 
 /* Ficha */
-.crumbs {
+.piece-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding-top: 20px;
+}
+.crumbs {
+  min-width: 0;
   font-size: 0.9375rem;
   color: var(--ink-soft);
 }
@@ -674,6 +681,118 @@ a.cubby:hover .cubby-go svg {
   content: "›";
   margin-right: 8px;
 }
+/* Pasar de pieza: flechas arriba y tarjetas al final de la ficha */
+.pager-arrow {
+  transform: scaleX(-1);
+}
+.pager-mini {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+.pager-mini a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  transition: background-color 160ms var(--ease-out);
+}
+.pager-mini a:hover {
+  background: var(--yema-wash);
+}
+.pager-mini svg {
+  width: 20px;
+  height: 20px;
+}
+.pager {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(12px, 2vw, 24px);
+  padding-bottom: clamp(32px, 5vw, 64px);
+}
+.pager-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 92px;
+  padding: 12px 20px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ov-wash);
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out), transform 220ms var(--ease-out);
+}
+.pager-link:hover {
+  background: var(--ov);
+}
+.pager-link:active {
+  transform: scale(0.98);
+}
+.pager-link.is-siguiente {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.pager-link > svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  transition: transform 220ms var(--ease-out);
+}
+.pager-link.is-anterior:hover > svg {
+  transform: scaleX(-1) translateX(4px);
+}
+.pager-link.is-siguiente:hover > svg {
+  transform: translateX(4px);
+}
+.pager-thumb {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--white);
+}
+.pager-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pager-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.pager-label {
+  font-family: var(--font-type);
+  font-size: 0.9375rem;
+}
+.pager-name {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  font-stretch: 110%;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 640px) {
+  .pager-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px;
+  }
+  .pager-link.is-siguiente {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .pager-thumb {
+    display: none;
+  }
+}
+
 .piece-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

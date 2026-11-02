@@ -1518,6 +1518,13 @@ export function getAmigurumi(slug: string) {
   return amigurumis.find((a) => a.slug === slug);
 }
 
+/** Piezas anterior y siguiente en el orden de la colección (da la vuelta en los extremos). */
+export function vecinos(slug: string) {
+  const i = amigurumis.findIndex((a) => a.slug === slug);
+  const n = amigurumis.length;
+  return { anterior: amigurumis[(i - 1 + n) % n], siguiente: amigurumis[(i + 1) % n] };
+}
+
 export function numeroPatron(n: number) {
   return `Nº ${String(n).padStart(2, "0")}`;
 }

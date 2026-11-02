@@ -4,11 +4,12 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { amigurumis, getAmigurumi, nombreCategoria, numeroPatron } from "@/data/amigurumis";
+import Image from "next/image";
+import { amigurumis, getAmigurumi, nombreCategoria, numeroPatron, vecinos, type Amigurumi } from "@/data/amigurumis";
 import { Galeria } from "@/components/Galeria";
 import { ModelViewer } from "@/components/ModelViewer";
 import { PatternExplorer } from "@/components/PatternExplorer";
-import { Ovillo } from "@/components/icons";
+import { IconArrow, Ovillo } from "@/components/icons";
 
 /** El visor solo aparece si el .glb está de verdad en public/. */
 function existeEnPublic(ruta: string | null) {
@@ -37,6 +38,25 @@ function Dato({ nombre, valor }: { nombre: string; valor: string | null }) {
   );
 }
 
+/** Enlace a la pieza anterior o siguiente, con su foto y su nombre. */
+function Vecino({ a, sentido }: { a: Amigurumi; sentido: "anterior" | "siguiente" }) {
+  const foto = a.fotos[0];
+  return (
+    <Link className={`pager-link is-${sentido} ov-${a.ovillo}`} href={`/amigurumis/${a.slug}`} rel={sentido === "anterior" ? "prev" : "next"}>
+      <IconArrow className={sentido === "anterior" ? "pager-arrow" : undefined} />
+      {foto && (
+        <span className={`pager-thumb${foto.recorte ? " is-cutout" : ""}`}>
+          <Image src={foto.src} alt="" width={120} height={120} sizes="64px" style={{ objectPosition: `${foto.foco.x}% ${foto.foco.y}%` }} />
+        </span>
+      )}
+      <span className="pager-text">
+        <span className="pager-label">{sentido === "anterior" ? "Anterior" : "Siguiente"}</span>
+        <span className="pager-name">{a.nombre}</span>
+      </span>
+    </Link>
+  );
+}
+
 export default function PaginaAmigurumi({ params }: PageProps<"/amigurumis/[slug]">) {
   return (
     <Suspense fallback={<div className="wrap" style={{ minHeight: "100vh" }} aria-busy="true" />}>
@@ -52,20 +72,31 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
   const foto = a.fotos[0];
   const modelo = existeEnPublic(a.modelo3d) ? a.modelo3d : null;
   const altModelo = `Modelo 3D de ${a.nombre.toLowerCase()}: ${a.descripcion}`;
+  const { anterior, siguiente } = vecinos(a.slug);
 
   return (
     <>
-      <nav className="crumbs wrap" aria-label="Migas de pan">
-        <ol>
-          <li>
-            <Link href="/#coleccion">Colección</Link>
-          </li>
-          <li>
-            <Link href={`/?categoria=${a.categoria}#coleccion`}>{nombreCategoria(a.categoria)}</Link>
-          </li>
-          <li aria-current="page">{numeroPatron(a.numero)}</li>
-        </ol>
-      </nav>
+      <div className="piece-top wrap">
+        <nav className="crumbs" aria-label="Migas de pan">
+          <ol>
+            <li>
+              <Link href="/#coleccion">Colección</Link>
+            </li>
+            <li>
+              <Link href={`/?categoria=${a.categoria}#coleccion`}>{nombreCategoria(a.categoria)}</Link>
+            </li>
+            <li aria-current="page">{numeroPatron(a.numero)}</li>
+          </ol>
+        </nav>
+        <nav className="pager-mini" aria-label="Pasar de pieza">
+          <Link href={`/amigurumis/${anterior.slug}`} aria-label={`Anterior: ${anterior.nombre}`}>
+            <IconArrow className="pager-arrow" />
+          </Link>
+          <Link href={`/amigurumis/${siguiente.slug}`} aria-label={`Siguiente: ${siguiente.nombre}`}>
+            <IconArrow />
+          </Link>
+        </nav>
+      </div>
 
       <div className={`piece-head wrap ov-${a.ovillo}`}>
         {foto ? (
@@ -113,6 +144,11 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
           </Link>
         </div>
       </div>
+
+      <nav className="pager wrap" aria-label="Otras piezas de la colección">
+        <Vecino a={anterior} sentido="anterior" />
+        <Vecino a={siguiente} sentido="siguiente" />
+      </nav>
 
       {/* Cada sección aparece solo cuando la pieza tiene ese contenido. */}
       {foto && modelo && (
