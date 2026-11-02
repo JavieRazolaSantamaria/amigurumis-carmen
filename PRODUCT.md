@@ -32,6 +32,8 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 ## Capabilities and Constraints
 
 - Catálogo de amigurumis con una ficha por pieza: fotos, descripción y datos de la pieza.
+- Secciones de la colección (Animales, Navidad, Halloween…), definidas en `categorias` de `src/data/amigurumis.ts`.
+- Fotos de las piezas con el fondo quitado (rembg) para que salgan del casillero.
 - **Visor 3D (listo, sin modelos aún):** aparece solo si existe el .glb de la pieza.
 - **Regla: nada incompleto a la vista.** Patrón, 3D, tamaño e hilo solo se muestran cuando existen; nunca textos de "en preparación", "por completar" ni contenido de ejemplo (decisión del usuario).
 - **Patrón (listo, sin patrones aún):** la sección aparece solo si la pieza tiene su patrón real.
@@ -48,7 +50,7 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 ## Evidence on Hand
 
 - `public/carmen.jpg` — foto de Carmen delante de una buganvilla.
-- `public/amigurumis/` — fotos reales hechas por el usuario. Piezas: Nº 01 wombat (foto en la mano) y Nº 02 brujita (foto con el fondo quitado con rembg). El 3D con IA (Tripo/TRELLIS) se probó y no convence aún; el visor está listo para cuando haya un .glb.
+- `public/amigurumis/` — fotos reales hechas por el usuario. Piezas: Nº 01 wombat, Nº 02 brujita, Nº 03 unicornio, Nº 04 belén (todas con el fondo quitado con rembg). El 3D con IA (Tripo/TRELLIS) se probó y no convence aún; el visor está listo para cuando haya un .glb.
 - La presentación de Carmen en la portada es provisional (escrita sin datos de ella).
 - No existen testimonios, reseñas, cifras de ventas, precios ni patrones reales: no inventarlos. No mostrar contenido de ejemplo.
 

@@ -320,6 +320,41 @@ p {
   font-size: 1.125rem;
 }
 
+/* Secciones de la colección */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+.filter span {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.filter:hover {
+  background: var(--yema-wash);
+}
+.filter[aria-pressed="true"] {
+  background: var(--ink);
+  color: #fff;
+}
+.filter[aria-pressed="true"] span {
+  color: var(--yema);
+}
+
 /* Estantería de la colección */
 .shelf {
   display: grid;

@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { amigurumis, getAmigurumi, numeroPatron } from "@/data/amigurumis";
+import { amigurumis, getAmigurumi, nombreCategoria, numeroPatron } from "@/data/amigurumis";
 import { ModelViewer } from "@/components/ModelViewer";
 import { PatternExplorer } from "@/components/PatternExplorer";
 import { Ovillo } from "@/components/icons";
@@ -60,6 +60,9 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
           <li>
             <Link href="/#coleccion">Colección</Link>
           </li>
+          <li>
+            <Link href={`/?categoria=${a.categoria}#coleccion`}>{nombreCategoria(a.categoria)}</Link>
+          </li>
           <li aria-current="page">{numeroPatron(a.numero)}</li>
         </ol>
       </nav>
@@ -101,6 +104,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
               <span className="type tnum">{numeroPatron(a.numero)}</span>
             </p>
             <dl>
+              <Dato nombre="Sección" valor={nombreCategoria(a.categoria)} />
               <Dato nombre="Colores" valor={a.colores.join(", ")} />
               <Dato nombre="Técnica" valor="Ganchillo en espiral, punto bajo" />
               <Dato nombre="Tamaño" valor={a.tamano} />

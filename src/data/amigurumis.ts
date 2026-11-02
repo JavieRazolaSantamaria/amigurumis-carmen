@@ -29,8 +29,22 @@ export type Patron = {
 /** Colores de ovillo de la web; cada pieza ocupa un casillero de uno de ellos. */
 export type ColorOvillo = "yema" | "coral" | "turquesa" | "hoja";
 
+/** Secciones de la colección. Para añadir una (p. ej. "verano"), basta con añadirla aquí. */
+export const categorias = [
+  { id: "animales", nombre: "Animales" },
+  { id: "navidad", nombre: "Navidad" },
+  { id: "halloween", nombre: "Halloween" },
+] as const;
+
+export type Categoria = (typeof categorias)[number]["id"];
+
+export function nombreCategoria(id: Categoria) {
+  return categorias.find((c) => c.id === id)?.nombre ?? id;
+}
+
 export type Amigurumi = {
   slug: string;
+  categoria: Categoria;
   /** Color del casillero de la pieza en la estantería. */
   ovillo: ColorOvillo;
   numero: number;
@@ -54,6 +68,7 @@ export type Amigurumi = {
 export const amigurumis: Amigurumi[] = [
   {
     slug: "wombat",
+    categoria: "animales",
     ovillo: "yema",
     numero: 1,
     nombre: "Wombat",
@@ -65,11 +80,12 @@ export const amigurumis: Amigurumi[] = [
     hilo: null,
     fotos: [
       {
-        src: "/amigurumis/wombat/frente.jpg",
-        alt: "Amigurumi de wombat beige sostenido en la mano, de frente: hocico marrón, ojos negros, orejas redondas y un diente blanco.",
-        ancho: 1500,
-        alto: 2000,
-        foco: { x: 51, y: 51 },
+        src: "/amigurumis/wombat/frente.webp",
+        alt: "Amigurumi de wombat beige de frente: hocico marrón, ojos negros, orejas redondas y un diente blanco.",
+        ancho: 1165,
+        alto: 1165,
+        foco: { x: 50, y: 50 },
+        recorte: true,
       },
     ],
     modelo3d: null,
@@ -77,6 +93,7 @@ export const amigurumis: Amigurumi[] = [
   },
   {
     slug: "brujita",
+    categoria: "halloween",
     ovillo: "coral",
     numero: 2,
     nombre: "Brujita",
@@ -99,6 +116,56 @@ export const amigurumis: Amigurumi[] = [
     ],
     // Modelo generado con Tripo a partir de una foto. Exportar como GLB y guardarlo aquí.
     modelo3d: "/amigurumis/brujita/modelo.glb",
+    patron: null,
+  },
+  {
+    slug: "unicornio",
+    categoria: "animales",
+    ovillo: "hoja",
+    numero: 3,
+    nombre: "Unicornio",
+    nombreProvisional: false,
+    descripcion:
+      "Blanco, con el hocico en beige y las patas en rosa. Lleva un cuerno amarillo, una corona de florecillas y una crin larga de hebras rosas, lilas, azules y verdes.",
+    colores: ["Blanco", "Beige", "Rosa", "Amarillo", "Lila", "Azul"],
+    tamano: null,
+    hilo: null,
+    fotos: [
+      {
+        src: "/amigurumis/unicornio/frente.webp",
+        alt: "Amigurumi de unicornio blanco sentado, con cuerno amarillo, crin de colores, mofletes rosas y patas rosas.",
+        ancho: 1113,
+        alto: 1113,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+      },
+    ],
+    modelo3d: null,
+    patron: null,
+  },
+  {
+    slug: "belen",
+    categoria: "navidad",
+    ovillo: "turquesa",
+    numero: 4,
+    nombre: "Belén",
+    nombreProvisional: false,
+    descripcion:
+      "Nacimiento completo de seis figuras: San José con su cayado, la Virgen María, el Niño Jesús en el pesebre, un ángel de alas doradas, el buey y la mula.",
+    colores: ["Beige", "Marrón", "Gris", "Azul", "Blanco", "Dorado"],
+    tamano: null,
+    hilo: null,
+    fotos: [
+      {
+        src: "/amigurumis/belen/frente.webp",
+        alt: "Belén de amigurumi: San José, el ángel sobre un tarro de cristal, la Virgen María y, delante, el buey, el Niño en el pesebre y la mula.",
+        ancho: 1400,
+        alto: 1400,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+      },
+    ],
+    modelo3d: null,
     patron: null,
   },
 ];

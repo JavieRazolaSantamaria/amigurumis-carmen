@@ -1,16 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { amigurumis, numeroPatron, type ColorOvillo } from "@/data/amigurumis";
 import { sitio } from "@/data/sitio";
+import { Coleccion } from "@/components/Coleccion";
 import { Hilo } from "@/components/Hilo";
 import { IconArrow, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
 
-// Casilleros que se muestran en la estantería mientras la colección es pequeña.
-const CASILLEROS_MINIMOS = 3;
-const ORDEN_OVILLOS: ColorOvillo[] = ["yema", "coral", "turquesa", "hoja"];
-
 export default function Home() {
-  const huecos = Math.max(0, CASILLEROS_MINIMOS - amigurumis.length);
   const [nombre, ...apellidos] = sitio.autoraCompleta.split(" ");
 
   return (
@@ -45,58 +40,9 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <h2 id="coleccion-titulo">La colección</h2>
-            <p>Cada pieza en su casillero, como los ovillos de una mercería. Los vacíos son las que aún están en el ganchillo.</p>
+            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones. Los vacíos son las que aún están en el ganchillo.</p>
           </div>
-          <ul className="shelf">
-            {amigurumis.map((a) => (
-              <li key={a.slug} style={{ display: "contents" }}>
-                <Link className={`cubby ov-${a.ovillo}`} href={`/amigurumis/${a.slug}`}>
-                  <span className={`cubby-media${a.fotos[0]?.recorte ? " is-cutout" : ""}`}>
-                    {a.fotos[0] ? (
-                      <Image
-                        src={a.fotos[0].src}
-                        alt=""
-                        width={480}
-                        height={480}
-                        sizes="(max-width: 640px) 90vw, 30vw"
-                        style={{ objectPosition: `${a.fotos[0].foco.x}% ${a.fotos[0].foco.y}%` }}
-                      />
-                    ) : (
-                      <span className="cubby-nophoto">
-                        <Ovillo />
-                      </span>
-                    )}
-                  </span>
-                  <span className="cubby-body">
-                    <span className="cubby-num tnum">{numeroPatron(a.numero)}</span>
-                    <h3>{a.nombre}</h3>
-                    <span className="cubby-meta">
-                      {a.colores.join(" · ")} {a.nombreProvisional && <span className="tag">nombre provisional</span>}
-                    </span>
-                    <span className="cubby-go">
-                      Ver ficha
-                      <IconArrow />
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-            {Array.from({ length: huecos }, (_, i) => {
-              const color = ORDEN_OVILLOS[(amigurumis.length + i) % ORDEN_OVILLOS.length];
-              return (
-                <li key={`hueco-${i}`} className={`cubby is-empty ov-${color}`}>
-                  <span className="cubby-media">
-                    <Ovillo />
-                  </span>
-                  <span className="cubby-body">
-                    <span className="cubby-num tnum">{numeroPatron(amigurumis.length + i + 1)}</span>
-                    <h3>En el ganchillo</h3>
-                    <span className="cubby-meta">Próxima pieza de la colección.</span>
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
+          <Coleccion />
         </div>
       </section>
 

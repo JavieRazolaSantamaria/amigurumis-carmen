@@ -152,6 +152,9 @@ Píldoras de 52 px con borde de tinta de 2 px. Primario coral con texto en tinta
 ### Casillero (cubby)
 Bloque del color de ovillo con la foto en círculo, número en notación, nombre y "Ver ficha". Los vacíos usan el `-wash`, un círculo discontinuo y un ovillo dibujado: "En el ganchillo".
 
+### Secciones (filtros)
+Píldoras con borde de tinta encima de la estantería: Todas · Animales · Navidad · Halloween, con el número de piezas. La activa se rellena de tinta con el número en amarillo. Solo aparecen las secciones que tienen piezas; la elegida va en la URL (`?categoria=`). Los huecos "En el ganchillo" completan la última balda solo en "Todas".
+
 ### Etiqueta de ovillo
 En la ficha: caja con borde de tinta, cabecera del color de la pieza (nombre y número) y filas de datos. Lo que falta se muestra como "Por completar" en cursiva.
 
