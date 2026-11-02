@@ -22,8 +22,6 @@ export type PasoPatron = {
 };
 
 export type Patron = {
-  /** true mientras el patrón mostrado no sea el real de la pieza. */
-  esEjemplo: boolean;
   material: string[];
   pasos: PasoPatron[];
 };
@@ -47,30 +45,10 @@ export type Amigurumi = {
   /**
    * Ruta (dentro de public/) del modelo .glb. La ficha solo muestra el visor
    * si el archivo existe, así que basta con dejarlo en esa carpeta.
+   * Tamaño, hilo, modelo y patrón son opcionales: lo que es null no aparece.
    */
   modelo3d: string | null;
   patron: Patron | null;
-};
-
-// Patrón base de una bola de amigurumi en punto bajo. Es un EJEMPLO para
-// enseñar cómo se verá la sección; se sustituye por el patrón real de Carmen.
-const patronEjemploBola: Patron = {
-  esEjemplo: true,
-  material: ["Ganchillo de 2,5 mm", "Hilo de algodón", "Relleno de fibra", "Marcador de vuelta"],
-  pasos: [
-    { desde: 1, hasta: 1, instrucciones: "6 pb en un anillo mágico", puntos: 6 },
-    { desde: 2, hasta: 2, instrucciones: "6 aum", puntos: 12 },
-    { desde: 3, hasta: 3, instrucciones: "(1 pb, 1 aum) × 6", puntos: 18 },
-    { desde: 4, hasta: 4, instrucciones: "(2 pb, 1 aum) × 6", puntos: 24 },
-    { desde: 5, hasta: 5, instrucciones: "(3 pb, 1 aum) × 6", puntos: 30 },
-    { desde: 6, hasta: 6, instrucciones: "(4 pb, 1 aum) × 6", puntos: 36 },
-    { desde: 7, hasta: 12, instrucciones: "36 pb, una vuelta por fila", puntos: 36 },
-    { desde: 13, hasta: 13, instrucciones: "(4 pb, 1 dism) × 6", puntos: 30 },
-    { desde: 14, hasta: 14, instrucciones: "(3 pb, 1 dism) × 6", puntos: 24 },
-    { desde: 15, hasta: 15, instrucciones: "(2 pb, 1 dism) × 6. Rellenar", puntos: 18 },
-    { desde: 16, hasta: 16, instrucciones: "(1 pb, 1 dism) × 6", puntos: 12 },
-    { desde: 17, hasta: 17, instrucciones: "6 dism. Cerrar y esconder la hebra", puntos: 6 },
-  ],
 };
 
 export const amigurumis: Amigurumi[] = [
@@ -95,7 +73,7 @@ export const amigurumis: Amigurumi[] = [
       },
     ],
     modelo3d: null,
-    patron: patronEjemploBola,
+    patron: null,
   },
   {
     slug: "brujita",

@@ -659,57 +659,11 @@ a.cubby:hover .cubby-go svg {
 .label dt {
   font-weight: 700;
 }
-.label dd.is-pending {
-  color: var(--ink-soft);
-  font-style: italic;
-}
 .piece-info .btn {
   margin-top: 28px;
 }
 
-/* Vista 3D (vacía por ahora) */
-.empty-3d {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 24px 40px;
-  padding: clamp(24px, 4vw, 48px);
-  border-radius: var(--radius);
-  background: var(--turquesa-wash);
-}
-.empty-3d svg {
-  width: clamp(96px, 14vw, 150px);
-  height: auto;
-  color: var(--turquesa);
-}
-.empty-3d h3 {
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-.empty-3d p {
-  margin-top: 8px;
-  max-width: 52ch;
-  color: var(--ink-soft);
-}
-
 /* Patrón interactivo */
-.sample-note {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  max-width: var(--measure);
-  margin-bottom: 28px;
-  padding: 14px 18px;
-  border-radius: var(--radius-sm);
-  background: var(--yema-wash);
-  font-size: 0.9375rem;
-}
-.sample-note svg {
-  flex: none;
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-}
 .pattern {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -853,12 +807,6 @@ a.cubby:hover .cubby-go svg {
   color: var(--ink-soft);
 }
 
-.no-pattern {
-  max-width: var(--measure);
-  padding: 24px;
-  border-radius: var(--radius);
-  background: var(--yema-wash);
-}
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -922,9 +870,6 @@ a.cubby:hover .cubby-go svg {
   }
   .legend-item dt {
     margin-top: 0;
-  }
-  .empty-3d {
-    grid-template-columns: minmax(0, 1fr);
   }
   .round-check {
     align-items: start;

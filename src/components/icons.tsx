@@ -10,12 +10,6 @@ export const IconArrow = (p: P) => (
   </svg>
 );
 
-export const IconInfo = (p: P) => (
-  <svg {...base} {...p}>
-    <circle cx="12" cy="12" r="9" />
-    <path d="M12 11v5M12 8h.01" />
-  </svg>
-);
 
 /** Símbolos de ganchillo para la leyenda (viewBox 56). */
 const sym = { viewBox: "0 0 56 56", fill: "none", stroke: "currentColor", strokeWidth: 2.5, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true } as const;
@@ -42,15 +36,6 @@ export const SymDisminucion = (p: P) => (
   </svg>
 );
 
-/** Esfera de alambre para el estado vacío del visor 3D. */
-export const Sym3D = (p: P) => (
-  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden {...p}>
-    <circle cx="60" cy="60" r="48" />
-    <ellipse cx="60" cy="60" rx="20" ry="48" />
-    <ellipse cx="60" cy="60" rx="48" ry="16" />
-    <path d="M22 34c10 6 24 9 38 9s28-3 38-9M22 86c10-6 24-9 38-9s28 3 38 9" strokeDasharray="4 5" />
-  </svg>
-);
 
 /** Ovillo de lana: madejas de hebras paralelas cruzadas y una hebra suelta. */
 export function Ovillo(p: P) {

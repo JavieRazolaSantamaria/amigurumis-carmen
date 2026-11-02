@@ -32,8 +32,9 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 ## Capabilities and Constraints
 
 - Catálogo de amigurumis con una ficha por pieza: fotos, descripción y datos de la pieza.
-- **Visor 3D interactivo (previsto):** generado a partir de varias fotos de cada amigurumi. Formato y herramienta de generación por decidir; la ficha debe funcionar sin modelo 3D.
-- **Patrón (previsto):** se mostrará en la ficha. Sin decidir si será gratis, parcial o de pago; la sección debe poder ocultarse.
+- **Visor 3D (listo, sin modelos aún):** aparece solo si existe el .glb de la pieza.
+- **Regla: nada incompleto a la vista.** Patrón, 3D, tamaño e hilo solo se muestran cuando existen; nunca textos de "en preparación", "por completar" ni contenido de ejemplo (decisión del usuario).
+- **Patrón (listo, sin patrones aún):** la sección aparece solo si la pieza tiene su patrón real.
 - Sin venta: no mostrar precios, encargos, botones de compra ni contacto comercial (decisión del usuario).
 - Sección "De dónde viene el amigurumi": origen japonés del término y de la técnica.
 
@@ -49,7 +50,7 @@ Cada pieza es un original hecho a mano por una persona concreta. La web no es un
 - `public/carmen.jpg` — foto de Carmen delante de una buganvilla.
 - `public/amigurumis/` — fotos reales hechas por el usuario. Piezas: Nº 01 wombat (foto en la mano) y Nº 02 brujita (foto con el fondo quitado con rembg). El 3D con IA (Tripo/TRELLIS) se probó y no convence aún; el visor está listo para cuando haya un .glb.
 - La presentación de Carmen en la portada es provisional (escrita sin datos de ella).
-- No existen testimonios, reseñas, cifras de ventas, precios ni patrones reales: no inventarlos. Cualquier texto o patrón de ejemplo debe marcarse como provisional.
+- No existen testimonios, reseñas, cifras de ventas, precios ni patrones reales: no inventarlos. No mostrar contenido de ejemplo.
 
 ## Product Principles
 
