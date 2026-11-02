@@ -438,22 +438,6 @@ a.cubby:hover {
 a.cubby:hover .cubby-go svg {
   transform: translateX(4px);
 }
-.cubby.is-empty {
-  background: var(--ov-wash);
-  color: var(--ink-soft);
-}
-.cubby.is-empty .cubby-media {
-  display: grid;
-  place-items: center;
-  background: transparent;
-  border: 2px dashed color-mix(in srgb, var(--ov) 70%, var(--ink));
-}
-.cubby.is-empty .cubby-media svg {
-  width: 46%;
-  height: auto;
-  color: var(--ov);
-}
-
 .tag {
   display: inline-block;
   padding: 2px 10px;

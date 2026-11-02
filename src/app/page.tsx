@@ -152,7 +152,7 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <h2 id="coleccion-titulo">La colección</h2>
-            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones. Los vacíos son las que aún están en el ganchillo.</p>
+            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones.</p>
           </div>
           <Coleccion />
         </div>

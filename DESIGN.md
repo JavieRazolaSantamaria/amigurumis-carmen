@@ -150,10 +150,10 @@ Todo redondeado: casilleros y cajas a `md` (20 px), filas y avisos a `sm`, boton
 Píldoras de 52 px con borde de tinta de 2 px. Primario coral con texto en tinta; secundario blanco que se invierte a tinta en hover.
 
 ### Casillero (cubby)
-Bloque del color de ovillo con la foto en círculo, número en notación, nombre y "Ver ficha". Los vacíos usan el `-wash`, un círculo discontinuo y un ovillo dibujado: "En el ganchillo".
+Bloque del color de ovillo con la foto en círculo, número en notación, nombre y "Ver ficha".
 
 ### Secciones (filtros)
-Píldoras con borde de tinta encima de la estantería: Todas · Animales · Navidad · Halloween, con el número de piezas. La activa se rellena de tinta con el número en amarillo. Solo aparecen las secciones que tienen piezas; la elegida va en la URL (`?categoria=`). Los huecos "En el ganchillo" completan la última balda solo en "Todas".
+Píldoras con borde de tinta encima de la estantería: Todas · Animales · Navidad · Halloween, con el número de piezas. La activa se rellena de tinta con el número en amarillo. Solo aparecen las secciones que tienen piezas; la elegida va en la URL (`?categoria=`).
 
 ### Galería de la ficha
 Foto grande sobre el color de la pieza y, si hay varias, sus vistas debajo (Frente, Tres cuartos, Lado, Espalda…) como miniaturas redondas con su nombre; la elegida lleva aro de tinta. Cambian con clic o con las flechas del teclado, con un fundido corto, y la vista queda en la URL (`?foto=2`). Cada foto declara su `vista` en los datos.

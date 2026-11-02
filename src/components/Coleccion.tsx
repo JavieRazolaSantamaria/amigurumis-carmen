@@ -3,11 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { amigurumis, categorias, nombreCategoria, numeroPatron, type Categoria, type ColorOvillo } from "@/data/amigurumis";
+import { amigurumis, categorias, nombreCategoria, numeroPatron, type Categoria } from "@/data/amigurumis";
 import { IconArrow, Ovillo } from "./icons";
-
-const ORDEN_OVILLOS: ColorOvillo[] = ["yema", "coral", "turquesa", "hoja"];
-const COLUMNAS = 3;
 
 // Solo se ofrecen las secciones que tienen alguna pieza.
 const secciones = categorias.filter((c) => amigurumis.some((a) => a.categoria === c.id));
@@ -38,8 +35,6 @@ export function Coleccion() {
   }
 
   const piezas = activa ? amigurumis.filter((a) => a.categoria === activa) : amigurumis;
-  // Los huecos "En el ganchillo" completan la última balda, solo en la vista general.
-  const huecos = activa ? 0 : (COLUMNAS - (piezas.length % COLUMNAS)) % COLUMNAS;
 
   return (
     <>
@@ -99,18 +94,6 @@ export function Coleccion() {
             </li>
           );
         })}
-        {Array.from({ length: huecos }, (_, i) => (
-          <li key={`hueco-${i}`} className={`cubby is-empty ov-${ORDEN_OVILLOS[(piezas.length + i) % ORDEN_OVILLOS.length]}`}>
-            <span className="cubby-media">
-              <Ovillo />
-            </span>
-            <span className="cubby-body">
-              <span className="cubby-num tnum">{numeroPatron(amigurumis.length + i + 1)}</span>
-              <h3>En el ganchillo</h3>
-              <span className="cubby-meta">Próxima pieza de la colección.</span>
-            </span>
-          </li>
-        ))}
       </ul>
     </>
   );
