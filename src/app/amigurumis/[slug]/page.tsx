@@ -2,10 +2,10 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { amigurumis, getAmigurumi, nombreCategoria, numeroPatron } from "@/data/amigurumis";
+import { Galeria } from "@/components/Galeria";
 import { ModelViewer } from "@/components/ModelViewer";
 import { PatternExplorer } from "@/components/PatternExplorer";
 import { Ovillo } from "@/components/icons";
@@ -69,10 +69,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
 
       <div className={`piece-head wrap ov-${a.ovillo}`}>
         {foto ? (
-          <figure className={`piece-photo${foto.recorte ? " is-cutout" : ""}`}>
-            <Image src={foto.src} alt={foto.alt} width={foto.ancho} height={foto.alto} sizes="(max-width: 900px) 100vw, 50vw" priority />
-            <figcaption>Foto real de la pieza, tejida por Carmen.</figcaption>
-          </figure>
+          <Galeria fotos={a.fotos} />
         ) : modelo ? (
           <figure className="piece-photo">
             <ModelViewer src={modelo} alt={altModelo} />

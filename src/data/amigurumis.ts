@@ -10,6 +10,8 @@ export type Foto = {
   foco: { x: number; y: number };
   /** true si la foto tiene el fondo quitado (PNG/WebP transparente). */
   recorte?: boolean;
+  /** Nombre de la vista en la galería de la ficha ("Frente", "Lado", "Espalda"…). */
+  vista?: string;
 };
 
 /** Un paso del patrón: una vuelta o un tramo de vueltas iguales. */
@@ -196,6 +198,34 @@ export const amigurumis: Amigurumi[] = [
           y: 50,
         },
         recorte: true,
+        vista: "Frente",
+      },
+      {
+        src: "/amigurumis/jirafa/tres-cuartos.webp",
+        alt: "Jirafa de amigurumi vista de tres cuartos, con la cabeza girada.",
+        ancho: 1219,
+        alto: 1219,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+        vista: "Tres cuartos",
+      },
+      {
+        src: "/amigurumis/jirafa/lado.webp",
+        alt: "Jirafa de amigurumi vista de lado, con las manchas del cuerpo.",
+        ancho: 1292,
+        alto: 1292,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+        vista: "Lado",
+      },
+      {
+        src: "/amigurumis/jirafa/espalda.webp",
+        alt: "Jirafa de amigurumi vista desde atrás: cuello largo, manchas y colita.",
+        ancho: 1400,
+        alto: 1400,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+        vista: "Espalda",
       },
     ],
     modelo3d: null,
@@ -224,6 +254,25 @@ export const amigurumis: Amigurumi[] = [
           y: 50,
         },
         recorte: true,
+        vista: "Frente",
+      },
+      {
+        src: "/amigurumis/ballena/cerca.webp",
+        alt: "Ballena de amigurumi de cerca, con la tripa crema y las aletas.",
+        ancho: 1400,
+        alto: 1400,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+        vista: "De cerca",
+      },
+      {
+        src: "/amigurumis/ballena/espalda.webp",
+        alt: "Ballena de amigurumi vista desde atrás, con la cola y el chorrito de agua.",
+        ancho: 1368,
+        alto: 1368,
+        foco: { x: 50, y: 50 },
+        recorte: true,
+        vista: "Espalda",
       },
     ],
     modelo3d: null,

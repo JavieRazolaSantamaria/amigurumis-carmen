@@ -1059,3 +1059,62 @@ a.cubby:hover .cubby-media.is-cutout img {
     scroll-snap-align: start;
   }
 }
+
+/* Galería de la ficha: vistas de la pieza */
+.gallery-stage {
+  display: grid;
+}
+.gallery-stage > img {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms var(--ease-out), visibility 240ms;
+}
+.gallery-stage > img.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.gallery-views {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 6px 0;
+}
+.gallery-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-out);
+}
+.gallery-view:hover {
+  background: rgb(253 253 251 / 0.5);
+}
+.gallery-thumb {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--ov-wash);
+  border: 3px solid transparent;
+  transition: border-color 160ms var(--ease-out);
+}
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.gallery-view[aria-pressed="true"] .gallery-thumb {
+  border-color: var(--ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-stage > img {
+    transition: none;
+  }
+}

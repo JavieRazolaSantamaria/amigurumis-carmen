@@ -155,6 +155,9 @@ Bloque del color de ovillo con la foto en círculo, número en notación, nombre
 ### Secciones (filtros)
 Píldoras con borde de tinta encima de la estantería: Todas · Animales · Navidad · Halloween, con el número de piezas. La activa se rellena de tinta con el número en amarillo. Solo aparecen las secciones que tienen piezas; la elegida va en la URL (`?categoria=`). Los huecos "En el ganchillo" completan la última balda solo en "Todas".
 
+### Galería de la ficha
+Foto grande sobre el color de la pieza y, si hay varias, sus vistas debajo (Frente, Tres cuartos, Lado, Espalda…) como miniaturas redondas con su nombre; la elegida lleva aro de tinta. Cambian con clic o con las flechas del teclado, con un fundido corto, y la vista queda en la URL (`?foto=2`). Cada foto declara su `vista` en los datos.
+
 ### Etiqueta de ovillo
 En la ficha: caja con borde de tinta, cabecera del color de la pieza (nombre y número) y filas de datos. Lo que falta se muestra como "Por completar" en cursiva.
 
