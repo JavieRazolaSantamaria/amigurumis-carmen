@@ -1650,13 +1650,13 @@ export const amigurumis: Amigurumi[] = [
     patron: null,
   },
   {
-    slug: "rinoceronte",
+    slug: "dinosaurio-azul",
     categoria: "animales",
     ovillo: "turquesa",
     numero: 47,
-    nombre: "Rinoceronte azul",
+    nombre: "Dinosaurio azul",
     nombreProvisional: false,
-    descripcion: "Rinoceronte azul vaquero con cuerno en el hocico, ojos de seguridad y patitas cortas.",
+    descripcion: "Dinosaurio azul vaquero con un cuerno gris en la cabeza, ojos de seguridad y patitas cortas.",
     colores: [
       "Azul",
       "Gris",
@@ -1665,8 +1665,8 @@ export const amigurumis: Amigurumi[] = [
     hilo: null,
     fotos: [
       {
-        src: "/amigurumis/rinoceronte/frente.webp",
-        alt: "Amigurumi de rinoceronte azul con cuerno gris.",
+        src: "/amigurumis/dinosaurio-azul/frente.webp",
+        alt: "Amigurumi de dinosaurio azul con un cuerno gris en la cabeza.",
         ancho: 1400,
         alto: 1400,
         foco: {
@@ -1785,13 +1785,13 @@ export const amigurumis: Amigurumi[] = [
     patron: null,
   },
   {
-    slug: "mandragoras",
+    slug: "llaveros-limones",
     categoria: "otros",
     ovillo: "turquesa",
     numero: 51,
-    nombre: "Llaveros de mandrágora",
+    nombre: "Llaveros de limones",
     nombreProvisional: false,
-    descripcion: "Tres raíces amarillas con hojitas verdes y cara de sueño, cada una en su llavero.",
+    descripcion: "Tres limones amarillos con hojitas verdes y cara de sueño, cada uno en su llavero.",
     colores: [
       "Amarillo",
       "Verde",
@@ -1801,8 +1801,8 @@ export const amigurumis: Amigurumi[] = [
     hilo: null,
     fotos: [
       {
-        src: "/amigurumis/mandragoras/frente.webp",
-        alt: "Tres llaveros de ganchillo con forma de raíz amarilla con hojas verdes y cara dormida.",
+        src: "/amigurumis/llaveros-limones/frente.webp",
+        alt: "Tres llaveros de ganchillo con forma de limón amarillo, hojas verdes y cara dormida.",
         ancho: 1400,
         alto: 1400,
         foco: {
@@ -1813,8 +1813,8 @@ export const amigurumis: Amigurumi[] = [
         vista: "Frente",
       },
       {
-        src: "/amigurumis/mandragoras/tumbadas.webp",
-        alt: "Los tres llaveros de mandrágora tumbados.",
+        src: "/amigurumis/llaveros-limones/tumbadas.webp",
+        alt: "Los tres llaveros de limón tumbados.",
         ancho: 1400,
         alto: 1400,
         foco: {
@@ -1829,13 +1829,13 @@ export const amigurumis: Amigurumi[] = [
     patron: null,
   },
   {
-    slug: "osito-melena",
+    slug: "caballo",
     categoria: "animales",
     ovillo: "hoja",
     numero: 52,
-    nombre: "Osito de melena blanca",
+    nombre: "Caballito de crin blanca",
     nombreProvisional: false,
-    descripcion: "Osito marrón con una larga melena blanca, hocico claro y patitas negras.",
+    descripcion: "Caballito marrón con una larga crin blanca, hocico claro y cascos negros.",
     colores: [
       "Marrón",
       "Blanco",
@@ -1846,8 +1846,8 @@ export const amigurumis: Amigurumi[] = [
     hilo: null,
     fotos: [
       {
-        src: "/amigurumis/osito-melena/frente.webp",
-        alt: "Amigurumi de osito marrón con melena larga blanca.",
+        src: "/amigurumis/caballo/frente.webp",
+        alt: "Amigurumi de caballito marrón con la crin larga y blanca.",
         ancho: 977,
         alto: 977,
         foco: {
