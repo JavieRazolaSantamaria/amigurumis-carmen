@@ -42,7 +42,7 @@ function Dato({ nombre, valor }: { nombre: string; valor: string | null }) {
 function Vecino({ a, sentido }: { a: Amigurumi; sentido: "anterior" | "siguiente" }) {
   const foto = a.fotos[0];
   return (
-    <Link className={`pager-link is-${sentido} ov-${a.ovillo}`} href={`/amigurumis/${a.slug}`} rel={sentido === "anterior" ? "prev" : "next"}>
+    <Link className={`pager-link is-${sentido} ov-${a.categoria}`} href={`/amigurumis/${a.slug}`} rel={sentido === "anterior" ? "prev" : "next"}>
       <IconArrow className={sentido === "anterior" ? "pager-arrow" : undefined} />
       {foto && (
         <span className={`pager-thumb${foto.recorte ? " is-cutout" : ""}`}>
@@ -98,7 +98,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
         </nav>
       </div>
 
-      <div className={`piece-head wrap ov-${a.ovillo}`}>
+      <div className={`piece-head wrap ov-${a.categoria}`}>
         {foto ? (
           <Galeria fotos={a.fotos} video={a.video} />
         ) : modelo ? (
@@ -158,7 +158,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
               <h2 id="vista-3d-titulo">Vista 3D</h2>
               <p>Gira la pieza y mírala desde todos los lados.</p>
             </div>
-            <div className={`ov-${a.ovillo}`}>
+            <div className={`ov-${a.categoria}`}>
               <ModelViewer src={modelo} alt={altModelo} />
             </div>
           </div>
@@ -172,7 +172,7 @@ async function FichaAmigurumi({ params }: { params: Promise<{ slug: string }> })
               <h2 id="patron-titulo">Patrón</h2>
               <p>Toca una vuelta para verla en la forma de la pieza y marca las que ya hayas tejido.</p>
             </div>
-            <div className={`ov-${a.ovillo}`}>
+            <div className={`ov-${a.categoria}`}>
               <PatternExplorer slug={a.slug} patron={a.patron} />
             </div>
           </div>

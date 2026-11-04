@@ -180,3 +180,7 @@ Silueta de barras (una por vuelta, ancho proporcional a los puntos) sobre el `-w
 - No usar sombras, degradados ni texto blanco sobre amarillo, coral o verde.
 - No inventar precios, reseñas, medidas ni patrones.
 - Nada de lenguaje de venta ni encargos: es un escaparate.
+
+## Color por sección
+
+Cada sección tiene su color de casillero, elegido por Carmen (clases `.ov-<sección>` en `globals.css`): Navidad rojo, Personajes azul, Halloween amarillo, Plantas verde, Otros naranja, Fantasía violeta, Muñecas rosa, Animales marrón y Bebés turquesa. Son tonos medios para que el texto en tinta mantenga al menos 4,5:1 de contraste. Una sección nueva necesita su clase de color.

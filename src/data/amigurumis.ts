@@ -28,10 +28,10 @@ export type Patron = {
   pasos: PasoPatron[];
 };
 
-/** Colores de ovillo de la web; cada pieza ocupa un casillero de uno de ellos. */
-export type ColorOvillo = "yema" | "coral" | "turquesa" | "hoja";
-
-/** Secciones de la colección. Para añadir una (p. ej. "verano"), basta con añadirla aquí. */
+/**
+ * Secciones de la colección. Cada una tiene su color de casillero (clase .ov-<id>
+ * en globals.css). Para añadir una (p. ej. "verano"), se añade aquí y su color allí.
+ */
 export const categorias = [
   { id: "animales", nombre: "Animales" },
   { id: "fantasia", nombre: "Fantasía" },
@@ -53,8 +53,6 @@ export function nombreCategoria(id: Categoria) {
 export type Amigurumi = {
   slug: string;
   categoria: Categoria;
-  /** Color del casillero de la pieza en la estantería. */
-  ovillo: ColorOvillo;
   numero: number;
   nombre: string;
   /** true mientras Carmen no confirme el nombre. */
@@ -89,7 +87,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "wombat",
     categoria: "animales",
-    ovillo: "yema",
     numero: 1,
     nombre: "Wombat",
     nombreProvisional: false,
@@ -115,7 +112,6 @@ export const amigurumis: Amigurumi[] = [
     slug: "brujita",
     destacada: true,
     categoria: "halloween",
-    ovillo: "coral",
     numero: 2,
     nombre: "Brujita",
     nombreProvisional: false,
@@ -142,7 +138,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "unicornio",
     categoria: "fantasia",
-    ovillo: "hoja",
     numero: 3,
     nombre: "Unicornio",
     nombreProvisional: false,
@@ -167,7 +162,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "belen",
     categoria: "navidad",
-    ovillo: "turquesa",
     numero: 4,
     nombre: "Belén",
     nombreProvisional: false,
@@ -192,7 +186,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "jirafa",
     categoria: "animales",
-    ovillo: "turquesa",
     numero: 5,
     nombre: "Jirafa",
     nombreProvisional: false,
@@ -248,7 +241,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "ballena",
     categoria: "animales",
-    ovillo: "yema",
     numero: 6,
     nombre: "Ballena",
     nombreProvisional: false,
@@ -295,7 +287,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "unicornio-trenzas",
     categoria: "fantasia",
-    ovillo: "coral",
     numero: 7,
     nombre: "Unicornio de trenzas",
     nombreProvisional: false,
@@ -323,7 +314,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "unicornio-rosa",
     categoria: "fantasia",
-    ovillo: "turquesa",
     numero: 8,
     nombre: "Unicornio de hocico rosa",
     nombreProvisional: false,
@@ -351,7 +341,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "adorno-unicornio",
     categoria: "fantasia",
-    ovillo: "hoja",
     numero: 9,
     nombre: "Adorno de unicornio",
     nombreProvisional: false,
@@ -379,7 +368,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "muneca-gorro-rosa",
     categoria: "munecas",
-    ovillo: "turquesa",
     numero: 10,
     nombre: "Muñeca de gorro rosa",
     nombreProvisional: false,
@@ -407,7 +395,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "muneca-comunion",
     categoria: "munecas",
-    ovillo: "coral",
     numero: 11,
     nombre: "Muñeca de comunión",
     nombreProvisional: false,
@@ -435,7 +422,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "osita",
     categoria: "animales",
-    ovillo: "hoja",
     numero: 12,
     nombre: "Osita",
     nombreProvisional: false,
@@ -463,7 +449,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "monjita",
     categoria: "munecas",
-    ovillo: "yema",
     numero: 13,
     nombre: "Monjita",
     nombreProvisional: false,
@@ -491,7 +476,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "sonajero-osito",
     categoria: "bebes",
-    ovillo: "coral",
     numero: 14,
     nombre: "Sonajero de osito",
     nombreProvisional: false,
@@ -518,7 +502,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "papa-mama-noel",
     categoria: "navidad",
-    ovillo: "hoja",
     numero: 15,
     nombre: "Papá y Mamá Noel",
     nombreProvisional: false,
@@ -546,7 +529,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "totoro",
     categoria: "personajes",
-    ovillo: "coral",
     numero: 16,
     nombre: "Totoro",
     nombreProvisional: false,
@@ -574,7 +556,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "guitarra",
     categoria: "otros",
-    ovillo: "turquesa",
     numero: 17,
     nombre: "Guitarra",
     nombreProvisional: false,
@@ -602,7 +583,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "sonajero-conejita",
     categoria: "bebes",
-    ovillo: "yema",
     numero: 18,
     nombre: "Sonajero de conejita",
     nombreProvisional: false,
@@ -631,7 +611,6 @@ export const amigurumis: Amigurumi[] = [
     slug: "grogu",
     destacada: true,
     categoria: "personajes",
-    ovillo: "coral",
     numero: 19,
     nombre: "Grogu",
     nombreProvisional: false,
@@ -659,7 +638,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "perro",
     categoria: "animales",
-    ovillo: "yema",
     numero: 20,
     nombre: "Perrito",
     nombreProvisional: false,
@@ -687,7 +665,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "vaca",
     categoria: "animales",
-    ovillo: "turquesa",
     numero: 21,
     nombre: "Vaca",
     nombreProvisional: false,
@@ -716,7 +693,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "margarita",
     categoria: "plantas",
-    ovillo: "coral",
     numero: 22,
     nombre: "Margarita en maceta",
     nombreProvisional: false,
@@ -774,7 +750,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "cactus",
     categoria: "plantas",
-    ovillo: "turquesa",
     numero: 23,
     nombre: "Cactus",
     nombreProvisional: false,
@@ -805,7 +780,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "suculentas",
     categoria: "plantas",
-    ovillo: "hoja",
     numero: 24,
     nombre: "Suculentas con ojitos",
     nombreProvisional: false,
@@ -862,7 +836,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "mono",
     categoria: "animales",
-    ovillo: "yema",
     numero: 25,
     nombre: "Monito",
     nombreProvisional: false,
@@ -893,7 +866,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "dinosaurio",
     categoria: "animales",
-    ovillo: "coral",
     numero: 26,
     nombre: "Dinosaurio",
     nombreProvisional: false,
@@ -923,7 +895,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "aguacates",
     categoria: "otros",
-    ovillo: "turquesa",
     numero: 27,
     nombre: "Aguacates",
     nombreProvisional: false,
@@ -968,7 +939,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "patucos",
     categoria: "bebes",
-    ovillo: "hoja",
     numero: 28,
     nombre: "Patucos de deportiva",
     nombreProvisional: false,
@@ -998,7 +968,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "patines",
     categoria: "otros",
-    ovillo: "yema",
     numero: 29,
     nombre: "Patines",
     nombreProvisional: false,
@@ -1029,7 +998,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "perrito-orejas-verdes",
     categoria: "animales",
-    ovillo: "coral",
     numero: 30,
     nombre: "Perrito de orejas verdes",
     nombreProvisional: false,
@@ -1061,7 +1029,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "muneca-sanitaria",
     categoria: "munecas",
-    ovillo: "turquesa",
     numero: 31,
     nombre: "Muñeca sanitaria",
     nombreProvisional: false,
@@ -1093,7 +1060,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "sirena",
     categoria: "fantasia",
-    ovillo: "hoja",
     numero: 32,
     nombre: "Sirena",
     nombreProvisional: false,
@@ -1123,7 +1089,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "unicornio-alas",
     categoria: "fantasia",
-    ovillo: "yema",
     numero: 33,
     nombre: "Unicornio con alas",
     nombreProvisional: false,
@@ -1154,7 +1119,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "unicornio-bufanda",
     categoria: "fantasia",
-    ovillo: "coral",
     numero: 34,
     nombre: "Unicornio de bufanda",
     nombreProvisional: false,
@@ -1186,7 +1150,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "mariposa",
     categoria: "animales",
-    ovillo: "turquesa",
     numero: 35,
     nombre: "Mariposa",
     nombreProvisional: false,
@@ -1217,7 +1180,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "conejito-peto",
     categoria: "animales",
-    ovillo: "hoja",
     numero: 36,
     nombre: "Conejito de peto",
     nombreProvisional: false,
@@ -1261,7 +1223,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "rana",
     categoria: "animales",
-    ovillo: "yema",
     numero: 37,
     nombre: "Rana",
     nombreProvisional: false,
@@ -1291,7 +1252,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "ballenita",
     categoria: "animales",
-    ovillo: "coral",
     numero: 38,
     nombre: "Ballenita celeste",
     nombreProvisional: false,
@@ -1321,7 +1281,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "leon",
     categoria: "animales",
-    ovillo: "turquesa",
     numero: 39,
     nombre: "León",
     nombreProvisional: false,
@@ -1352,7 +1311,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "arbol-navidad",
     categoria: "navidad",
-    ovillo: "hoja",
     numero: 40,
     nombre: "Árbol de Navidad",
     nombreProvisional: false,
@@ -1383,7 +1341,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "calabaza-brujita",
     categoria: "halloween",
-    ovillo: "yema",
     numero: 41,
     nombre: "Calabaza con sombrero de bruja",
     nombreProvisional: false,
@@ -1445,7 +1402,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "ratoncito",
     categoria: "animales",
-    ovillo: "coral",
     numero: 42,
     nombre: "Ratoncito",
     nombreProvisional: false,
@@ -1475,7 +1431,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "llaveros",
     categoria: "otros",
-    ovillo: "turquesa",
     numero: 43,
     nombre: "Llaveros de animalitos",
     nombreProvisional: false,
@@ -1558,7 +1513,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "muneca-vestido-rosa",
     categoria: "munecas",
-    ovillo: "hoja",
     numero: 44,
     nombre: "Muñeca de vestido rosa",
     nombreProvisional: false,
@@ -1590,7 +1544,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "muneca-pelirroja",
     categoria: "munecas",
-    ovillo: "yema",
     numero: 45,
     nombre: "Muñeca pelirroja",
     nombreProvisional: false,
@@ -1621,7 +1574,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "angelito",
     categoria: "navidad",
-    ovillo: "coral",
     numero: 46,
     nombre: "Angelito de Navidad",
     nombreProvisional: false,
@@ -1652,7 +1604,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "dinosaurio-azul",
     categoria: "animales",
-    ovillo: "turquesa",
     numero: 47,
     nombre: "Dinosaurio azul",
     nombreProvisional: false,
@@ -1682,7 +1633,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "adorno-reno",
     categoria: "navidad",
-    ovillo: "hoja",
     numero: 48,
     nombre: "Adorno de reno",
     nombreProvisional: false,
@@ -1713,7 +1663,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "sonajero-osito-rojo",
     categoria: "bebes",
-    ovillo: "yema",
     numero: 49,
     nombre: "Sonajero de osito con volante rojo",
     nombreProvisional: false,
@@ -1744,7 +1693,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "pulpitos",
     categoria: "bebes",
-    ovillo: "coral",
     numero: 50,
     nombre: "Pulpitos",
     nombreProvisional: false,
@@ -1787,7 +1735,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "llaveros-limones",
     categoria: "otros",
-    ovillo: "turquesa",
     numero: 51,
     nombre: "Llaveros de limones",
     nombreProvisional: false,
@@ -1831,7 +1778,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "caballo",
     categoria: "animales",
-    ovillo: "hoja",
     numero: 52,
     nombre: "Caballito de crin blanca",
     nombreProvisional: false,
@@ -1863,7 +1809,6 @@ export const amigurumis: Amigurumi[] = [
   {
     slug: "libelula",
     categoria: "animales",
-    ovillo: "yema",
     numero: 53,
     nombre: "Libélula",
     nombreProvisional: false,

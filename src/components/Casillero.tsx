@@ -8,7 +8,7 @@ export function Casillero({ a }: { a: Amigurumi }) {
   const foto = a.fotos[0];
   return (
     <li style={{ display: "contents" }}>
-      <Link className={`cubby ov-${a.ovillo}`} href={`/amigurumis/${a.slug}`}>
+      <Link className={`cubby ov-${a.categoria}`} href={`/amigurumis/${a.slug}`}>
         <span className={`cubby-media${foto?.recorte ? " is-cutout" : ""}`}>
           {foto ? (
             <Image

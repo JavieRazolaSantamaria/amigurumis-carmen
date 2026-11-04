@@ -100,6 +100,17 @@ p {
 .ov-turquesa { --ov: var(--turquesa); --ov-wash: var(--turquesa-wash); }
 .ov-hoja { --ov: var(--hoja); --ov-wash: var(--hoja-wash); }
 
+/* Color de casillero de cada sección (elegidos por Carmen). Tonos medios para que el texto en tinta se lea. */
+.ov-navidad { --ov: #ef5350; --ov-wash: #fde0df; }
+.ov-personajes { --ov: #5c9ded; --ov-wash: #dde9fb; }
+.ov-halloween { --ov: var(--yema); --ov-wash: var(--yema-wash); }
+.ov-plantas { --ov: var(--hoja); --ov-wash: var(--hoja-wash); }
+.ov-otros { --ov: #ff9838; --ov-wash: #ffe6cc; }
+.ov-fantasia { --ov: #b38cf0; --ov-wash: #ece2fc; }
+.ov-munecas { --ov: #ff8fbf; --ov-wash: #ffe0ee; }
+.ov-animales { --ov: #c99666; --ov-wash: #f2e3d3; }
+.ov-bebes { --ov: var(--turquesa); --ov-wash: var(--turquesa-wash); }
+
 /* Saltar al contenido */
 .skip {
   position: absolute;
