@@ -49,3 +49,6 @@ next-env.d.ts
 
 # fotos sin procesar que pasa el usuario (se recortan y van a public/)
 /fotos-originales/
+
+# skills de diseño de terceros (se usan en local, no se publican)
+/.claude/skills/
