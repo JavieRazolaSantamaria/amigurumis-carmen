@@ -1,6 +1,6 @@
 ---
 name: Amigurumis de Carmen Santamaría
-description: Estantería de mercería alegre, con cuatro colores de ovillo sobre blanco limpio.
+description: Estantería de mercería alegre, con cuatro colores de ovillo sobre fondo crema con símbolos de ganchillo.
 colors:
   white: "#fdfdfb"
   ink: "#2a1f33"
@@ -100,7 +100,7 @@ components:
 
 ## Overview
 
-La web es la estantería de una mercería: blanco limpio y luminoso, y los colores llegan en bloques, como ovillos ordenados por casilleros. Cada amigurumi ocupa su casillero de color y su ficha funciona como la etiqueta de un ovillo. Un hilo de lana turquesa baja entre secciones y se desenrolla al hacer scroll.
+La web es la estantería de una mercería: fondo crema cálido (`paper`) con símbolos de ganchillo esparcidos muy suaves (X, V, anillos y puntos en los colores de ovillo), y los colores llegan en bloques, como ovillos ordenados por casilleros. Cada amigurumi ocupa su casillero de color y su ficha funciona como la etiqueta de un ovillo. Un hilo de lana turquesa baja entre secciones y se desenrolla al hacer scroll.
 
 La portada presenta primero a Carmen: su foto en un arco amarillo, con un ovillo a los pies, y su nombre completo en grande. El tono es alegre y cercano, sin cuadrícula de fondo ni estética técnica.
 
@@ -117,7 +117,7 @@ Estrategia de paleta completa: cuatro colores de ovillo con papeles fijos, más 
 - **Verde hoja** (`hoja`): vueltas marcadas como tejidas.
 
 ### Neutral
-- `white` de fondo, `ink` para texto y superficies oscuras (pie), `ink-soft` para texto secundario, `line-soft` para separadores. Cada color tiene su versión `-wash` para fondos suaves y casilleros vacíos.
+- `paper` (#fff7ea con los símbolos de ganchillo) de fondo de página, `white` para superficies (botones secundarios, buscador, etiquetas), `ink` para texto y superficies oscuras (pie), `ink-soft` para texto secundario, `line-soft` para separadores. Cada color tiene su versión `-wash` para fondos suaves y casilleros vacíos.
 
 ### Named Rules
 - **Un ovillo por casillero.** Cada pieza tiene asignado un color de ovillo (`ovillo` en los datos) que tiñe su casillero, su ficha y su patrón.
@@ -150,10 +150,10 @@ Todo redondeado: casilleros y cajas a `md` (20 px), filas y avisos a `sm`, boton
 Píldoras de 52 px con borde de tinta de 2 px. Primario coral con texto en tinta; secundario blanco que se invierte a tinta en hover.
 
 ### Casillero (cubby)
-Bloque del color de ovillo con la foto en círculo, número en notación, nombre y "Ver ficha". Los vacíos usan el `-wash`, un círculo discontinuo y un ovillo dibujado: "En el ganchillo".
+Bloque del color de ovillo con la foto en círculo, número en notación, nombre y "Ver ficha".
 
 ### Secciones (filtros)
-Píldoras con borde de tinta encima de la estantería: Todas · Animales · Navidad · Halloween, con el número de piezas. La activa se rellena de tinta con el número en amarillo. Solo aparecen las secciones que tienen piezas; la elegida va en la URL (`?categoria=`). Los huecos "En el ganchillo" completan la última balda solo en "Todas".
+Píldoras con borde de tinta encima de la estantería: Todas · Animales · Navidad · Halloween, con el número de piezas. La activa se rellena de tinta con el número en amarillo. Solo aparecen las secciones que tienen piezas; la elegida va en la URL (`?categoria=`).
 
 ### Galería de la ficha
 Foto grande sobre el color de la pieza y, si hay varias, sus vistas debajo (Frente, Tres cuartos, Lado, Espalda…) como miniaturas redondas con su nombre; la elegida lleva aro de tinta. Cambian con clic o con las flechas del teclado, con un fundido corto, y la vista queda en la URL (`?foto=2`). Cada foto declara su `vista` en los datos.
@@ -180,3 +180,7 @@ Silueta de barras (una por vuelta, ancho proporcional a los puntos) sobre el `-w
 - No usar sombras, degradados ni texto blanco sobre amarillo, coral o verde.
 - No inventar precios, reseñas, medidas ni patrones.
 - Nada de lenguaje de venta ni encargos: es un escaparate.
+
+## Color por sección
+
+Cada sección tiene su color de casillero, elegido por Carmen (clases `.ov-<sección>` en `globals.css`): Navidad rojo, Personajes azul, Halloween amarillo, Plantas verde, Otros naranja, Fantasía violeta, Muñecas rosa, Animales marrón y Bebés turquesa. Son tonos medios para que el texto en tinta mantenga al menos 4,5:1 de contraste. Una sección nueva necesita su clase de color.

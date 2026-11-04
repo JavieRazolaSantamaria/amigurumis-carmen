@@ -1,12 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { sitio } from "@/data/sitio";
+import { destacadas, novedades } from "@/data/amigurumis";
+import { Casillero } from "@/components/Casillero";
 import { Coleccion } from "@/components/Coleccion";
 import { Hilo } from "@/components/Hilo";
-import { IconArrow, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
+import { IconArrow, IconInstagram, Ovillo, SymAnillo, SymAumento, SymDisminucion, SymPuntoBajo } from "@/components/icons";
 
 export default function Home() {
   const [nombre, ...apellidos] = sitio.autoraCompleta.split(" ");
+  // La última palabra va pegada a los emojis para que no se queden solos en una línea.
+  const corte = sitio.carta.firma.lastIndexOf(" ");
+  const firmaInicio = sitio.carta.firma.slice(0, corte);
+  const firmaFin = sitio.carta.firma.slice(corte + 1);
 
   return (
     <>
@@ -34,19 +40,52 @@ export default function Home() {
         </div>
       </section>
 
-      <Hilo />
-
-      <section className="section" id="coleccion" aria-labelledby="coleccion-titulo">
+      <section className="section" id="carmen" aria-labelledby="carta-titulo">
         <div className="wrap">
-          <div className="section-head">
-            <h2 id="coleccion-titulo">La colección</h2>
-            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones. Los vacíos son las que aún están en el ganchillo.</p>
+          <div className="band band-carta">
+            <h2 id="carta-titulo">{sitio.carta.titulo}</h2>
+            <div className="carta-texto">
+              {sitio.carta.parrafos.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+              <p className="carta-firma">
+                {firmaInicio}{" "}
+                <span className="nowrap">
+                  {firmaFin} <span aria-hidden="true">❤️🧶</span>
+                </span>
+                <span className="carta-autora" translate="no">
+                  {sitio.autora}
+                </span>
+              </p>
+            </div>
+            <a className="btn btn-ghost carta-ig" href={sitio.instagram.url} target="_blank" rel="noopener noreferrer">
+              <IconInstagram />
+              Síguela en Instagram
+              <span className="carta-ig-user" translate="no">
+                @{sitio.instagram.usuario}
+              </span>
+            </a>
           </div>
-          <Coleccion />
         </div>
       </section>
 
-      <Hilo variante={1} />
+      {destacadas.length > 0 && (
+        <section className="section" id="destacadas" aria-labelledby="destacadas-titulo">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 id="destacadas-titulo">Destacadas</h2>
+              <p>Una pequeña selección para empezar a mirar.</p>
+            </div>
+            <ul className="shelf">
+              {destacadas.map((a) => (
+                <Casillero key={a.slug} a={a} />
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <Hilo />
 
       <section className="section" id="origen" aria-labelledby="origen-titulo">
         <div className="wrap">
@@ -122,6 +161,34 @@ export default function Home() {
           <p className="legend-example">
             <strong>V3:</strong> (1 pb, 1 aum) × 6 <strong>(18)</strong>. Un punto bajo y un aumento, seis veces: la vuelta termina con 18 puntos.
           </p>
+        </div>
+      </section>
+
+      <Hilo variante={1} />
+
+      {novedades.length > 0 && (
+        <section className="section" id="novedades" aria-labelledby="novedades-titulo">
+          <div className="wrap">
+            <div className="section-head">
+              <h2 id="novedades-titulo">Novedades</h2>
+              <p>Las últimas piezas que han llegado a la estantería.</p>
+            </div>
+            <ul className="shelf">
+              {novedades.map((a) => (
+                <Casillero key={a.slug} a={a} />
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section className="section" id="coleccion" aria-labelledby="coleccion-titulo">
+        <div className="wrap">
+          <div className="section-head">
+            <h2 id="coleccion-titulo">La colección</h2>
+            <p>Cada pieza en su casillero, como los ovillos de una mercería, ordenadas por secciones.</p>
+          </div>
+          <Coleccion />
         </div>
       </section>
 

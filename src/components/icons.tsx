@@ -10,6 +10,14 @@ export const IconArrow = (p: P) => (
   </svg>
 );
 
+export const IconInstagram = (p: P) => (
+  <svg {...base} {...p}>
+    <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" />
+  </svg>
+);
+
 
 /** Símbolos de ganchillo para la leyenda (viewBox 56). */
 const sym = { viewBox: "0 0 56 56", fill: "none", stroke: "currentColor", strokeWidth: 2.5, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true } as const;
