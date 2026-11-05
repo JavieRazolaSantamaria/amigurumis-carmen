@@ -15,7 +15,7 @@ No es una tienda: aquí no se vende nada. Es una colección para mirar pieza a p
 
 ## 📌 Descripción del proyecto
 
-La web presenta a Carmen con su propio texto y muestra **53 piezas** ordenadas por secciones. Cada pieza tiene su ficha con fotos reales recortadas, varias vistas y, cuando existe, un vídeo.
+La web presenta a Carmen con su propio texto y muestra **54 piezas** ordenadas por secciones. Cada pieza tiene su ficha con fotos reales recortadas, varias vistas y, cuando existe, un vídeo.
 
 ### ✨ Qué se puede hacer en la web
 
@@ -55,7 +55,7 @@ Los colores de las secciones los eligió Carmen. Son tonos medios para que el te
 
 | Técnica | Dónde | Para qué |
 | :--- | :--- | :--- |
-| **Páginas estáticas + Partial Prerendering** | `app/amigurumis/[slug]` | Las 53 fichas se generan al compilar (`generateStaticParams`): cargan al instante y no necesitan servidor. |
+| **Páginas estáticas + Partial Prerendering** | `app/amigurumis/[slug]` | Las 54 fichas se generan al compilar (`generateStaticParams`): cargan al instante y no necesitan servidor. |
 | **Catálogo tipado en TypeScript** | `src/data/amigurumis.ts` | Toda la colección vive en un único archivo. Tamaño, hilo, patrón y modelo 3D son opcionales: si no existen, no aparecen. |
 | **Recorte automático de fondos** | Fotos en `public/amigurumis/` | Las fotos se procesan con [rembg](https://github.com/danielgatis/rembg) (BiRefNet / ISNet) para quitar el fondo, y se guardan en WebP. |
 | **`next/image`** | Casilleros, galería y pantalla completa | Tamaños adaptados a cada pantalla, carga diferida y sin saltos de diseño. |
@@ -91,7 +91,7 @@ src/
 │   ├── PatternExplorer.tsx       # Patrón de ganchillo interactivo
 │   └── icons.tsx                 # Iconos y símbolos de ganchillo propios
 └── data/
-    ├── amigurumis.ts             # Catálogo: secciones y las 53 piezas
+    ├── amigurumis.ts             # Catálogo: secciones y las 54 piezas
     └── sitio.ts                  # Texto de Carmen, foto e Instagram
 public/
 ├── carmen.jpg
@@ -137,7 +137,7 @@ npm run start
 {
   slug: "osito-azul",
   categoria: "animales",
-  numero: 54,
+  numero: 55,
   nombre: "Osito azul",
   nombreProvisional: false,
   descripcion: "Osito azul con lazo amarillo.",
